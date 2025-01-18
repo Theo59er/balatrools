@@ -7,7 +7,7 @@ export default function SettingsEditor({ data }: { data: SettingsData }) {
     const [settings, setSettings] = useState(data);
 
     return (<>
-        <Info text="Global settings for the game"><h2>Settings</h2></Info>
+        <Info info="Global settings for the game"><h2>Settings</h2></Info>
         <EditorInput label="Version" type="string" setting="version" settings={settings} setSettings={setSettings} />
         <EditorInput label="Language" type="string" setting="language" danger settings={settings} setSettings={setSettings} />
         <EditorInput label="Profile" type="number" setting="profile" danger settings={settings} setSettings={setSettings} />
