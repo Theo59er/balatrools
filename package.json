@@ -2,6 +2,10 @@
   "name": "balatro-save-editor",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "^20.18.1",
+    "pnpm": "^9.5.0"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
