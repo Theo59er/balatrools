@@ -1,7 +1,6 @@
 import { Balatro } from "@/lib/gamedata";
 
 export default function Joker({ joker }: { joker: string }) {
-    console.log(joker);
     const jokerObj = Balatro.Joker[joker as keyof typeof Balatro.Joker];
 
     return (<div className="flex flex-row gap-2">

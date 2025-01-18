@@ -68,6 +68,7 @@ body, p, h1, h2, h3, h4, h5, h6 {
   .shadow:active {
     box-shadow: none;
     transform: translateY(4px);
+    z-index: 1;
   }
 }
 
@@ -110,4 +111,7 @@ body, p, h1, h2, h3, h4, h5, h6 {
   background-color:#ff4c40;
   border-radius:0.4em;
   padding: 4px;
+}
+.hl-hand {
+  color:#ff8f00;
 }

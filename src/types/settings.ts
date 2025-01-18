@@ -87,7 +87,7 @@ export interface TutorialPart {
 
 
 export const settingsInfo: Partial<Record<keyof SettingsData, string>> = {
-    "version": "The version of the game this save was made in. You can actually just change this to whatever you want",
+    "version": "The version of the game this save was made in.",
     "language": "The language code for the displayed language. Make sure you change this to a valid value like `en-us`",
     "profile": "The profile number (1-3) that is selected in the game. May break if changed to a non-existent profile.",
     "crashreports": "Whether or not crash reports are sent to the localthunk",

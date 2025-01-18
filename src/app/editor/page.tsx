@@ -5,7 +5,7 @@ import ProfileEditor from "@/components/editors/Profile";
 import SettingsEditor from "@/components/editors/Settings";
 import FileInput from "@/components/FileInput";
 import Subtext from "@/components/Subtext";
-import { processFile } from "@/lib/jkrFile";
+import { processFile, processJSON } from "@/lib/jkrFile";
 import { useEffect, useState } from "react";
 
 export default function EditorPage() {
@@ -38,16 +38,17 @@ export default function EditorPage() {
   }, [file]);
 
   function download() {
+    if (!fileData || !file) return;
+
     console.log(fileData);
-    // const blob = new Blob([fileData], { type: "octect/stream" });
-    // const url = window.URL.createObjectURL(blob);
-    // const a = document.createElement("a");
-    // a.style.display = "none";
-    // a.href = url;
-    // a.download = file.name;
-    // document.body.appendChild(a);
-    // a.click();
-    // window.URL.revokeObjectURL(url);
+    const rawData = processJSON(fileData);
+
+    const blob = new Blob([rawData]);
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = file.name;
+    link.click();
   }
 
   return (
@@ -64,9 +65,9 @@ export default function EditorPage() {
       
       {(file && fileData) && <div className="bg-bg-2 p-2 rounded-lg flex flex-col gap-2">
         <Subtext>Settings marked with <span className="text-red-500">*</span> could damage your save if modified incorrectly</Subtext>
-        {fileType === "settings" && <SettingsEditor data={fileData} />}
+        {fileType === "settings" && <SettingsEditor data={fileData} setData={setFileData} />}
         {/* {fileType === "meta" && <SettingsEditor data={fileData} />} */}
-        {fileType === "profile" && <ProfileEditor data={fileData} />}
+        {fileType === "profile" && <ProfileEditor data={fileData} setData={setFileData} />}
         {/* {fileType === "save" && <SettingsEditor data={fileData} />} */}
       </div>}
       {(file && fileData) && <Button onClick={download} className="w-full">Download</Button>}

@@ -4,7 +4,7 @@ import { GiCardJoker } from "react-icons/gi";
 
 function ToolCard({ name, description, Icon, href }: { name: string; description: string, Icon: React.FC<LucideProps> | IconType, href: string }) {
     return (
-    <a href={href} className="flex flex-row gap-4 items-center bg-bg-2 p-4 rounded-lg shadow cursor-pointer">
+    <a href={href} className="flex flex-row gap-4 items-center bg-primary-1 hover:bg-primary-2 p-4 rounded-lg shadow cursor-pointer">
         <Icon size={48} />
         <div className="flex flex-col gap-2">
             <h3>{name}</h3>

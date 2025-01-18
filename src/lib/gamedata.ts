@@ -376,66 +376,45 @@ export const Balatro = {
         },
     },
     "Stake": {
-        "stake_gold": {
-            "name": "Gold Stake",
-            "text": [
-                "Shop can have {C:attention}Rental{} Jokers",
-                "{C:inactive,s:0.8}(Costs {C:money,s:0.8}$3{C:inactive,s:0.8} per round)",
-                "{s:0.8}Applies all previous Stakes"
-            ]
-        },
-        "stake_green": {
-            "name": "Green Stake",
-            "text": [
-                "Required score scales",
-                "faster for each {C:attention}Ante",
-                "{s:0.8}Applies all previous Stakes"
-            ]
-        },
-        "stake_black": {
-            "name": "Black Stake",
-            "text": [
-                "Shop can have {C:attention}Eternal{} Jokers",
-                "{C:inactive,s:0.8}(Can't be sold or destroyed)",
-                "{s:0.8}Applies all previous Stakes"
-            ]
-        },
-        "stake_purple": {
-            "name": "Purple Stake",
-            "text": [
-                "Required score scales",
-                "faster for each {C:attention}Ante",
-                "{s:0.8}Applies all previous Stakes"
-            ]
-        },
-        "stake_blue": {
-            "name": "Blue Stake",
-            "text": [
-                "{C:red}-1{} Discard",
-                "{s:0.8}Applies all previous Stakes"
-            ]
-        },
         "stake_white": {
             "name": "White Stake",
-            "text": [
-                "Base Difficulty"
-            ]
+            "order": 0,
+            "description": "Base Difficulty"
         },
         "stake_red": {
             "name": "Red Stake",
-            "text": [
-                "{C:attention}Small Blind{} gives",
-                "no reward money",
-                "{s:0.8}Applies all previous Stakes"
-            ]
+            "order": 1,
+            "description": "<span class=\"hl-orange\">Small Blind</span> gives<br>no reward money<br><span style=\"font-size: 85%;\">Applies all previous Stakes<span>"
+        },
+        "stake_green": {
+            "name": "Green Stake",
+            "order": 2,
+            "description": "Required score scales<br>faster for each <span class=\"hl-orange\">Ante</span><br><span style=\"font-size: 85%;\">Applies all previous Stakes<span>"
+        },
+        "stake_black": {
+            "name": "Black Stake",
+            "order": 3,
+            "description": "Shop can have <span class=\"hl-orange\">Eternal</span> Jokers<br><span style=\"font-size: 85%;\" class=\"hl-gray\">(Can't be sold or destroyed)</span><br><span style=\"font-size: 85%;\">Applies all previous Stakes</span>"
+        },
+        "stake_blue": {
+            "name": "Blue Stake",
+            "order": 4,
+            "description": "<span class=\"hl-red\">-1</span> Discard<br><span style=\"font-size: 85%;\">Applies all previous Stakes</span>"
+        },
+        "stake_purple": {
+            "name": "Purple Stake",
+            "order": 5,
+            "description": "Required score scales<br>faster for each <span class=\"hl-orange\">Ante</span><br><span style=\"font-size: 85%;\">Applies all previous Stakes</span>"
         },
         "stake_orange": {
             "name": "Orange Stake",
-            "text": [
-                "Shop can have {C:attention}Perishable{} Jokers",
-                "{C:inactive,s:0.8}(Debuffed after 5 Rounds)",
-                "{s:0.8}Applies all previous Stakes"
-            ]
+            "order": 6,
+            "description": "Shop can have <span class=\"hl-orange\">Perishable</span> Jokers<br><span style=\"font-size: 85%;\" class=\"hl-gray\">(Debuffed after 5 Rounds)</span><br><span style=\"font-size: 85%;\">Applies all previous Stakes</span>"
+        },
+        "stake_gold": {
+            "name": "Gold Stake",
+            "order": 7,
+            "description": "Shop can have <span class=\"hl-orange\">Rental</span> Jokers<br><span style=\"font-size: 85%;\" class=\"hl-gray\">(Costs <span class=\"hl-yellow\">$3</span> per round)</span><br><span style=\"font-size: 85%;\">Applies all previous Stakes</span>"
         }
     },
     "Blind": {
@@ -1162,14 +1141,14 @@ export const Balatro = {
         "j_chicot": {
             "name": "Chicot",
             "unlock": "Find this Joker from the Soul card.",
-            "description": "Disables effect of every Boss Blind\n",
+            "description": "Disables effect of every Boss Blind",
             "price": "N/A",
             "rarity": "Legendary",
             "order": 148
         },
         "j_gift": {
             "name": "Gift Card",
-            "description": "Add <span class=\"hl-yellow\">$1</span> of <span class=\"hl-orange\">sell value</span> to every <strong><span class=\"hl-orange\">Joker</span></strong> and <span class=\"hl-orange\">Consumable</span> card at end of round\n",
+            "description": "Add <span class=\"hl-yellow\">$1</span> of <span class=\"hl-orange\">sell value</span> to every <strong><span class=\"hl-orange\">Joker</span></strong> and <span class=\"hl-orange\">Consumable</span> card at end of round",
             "price": "$6",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -1178,14 +1157,14 @@ export const Balatro = {
         "j_hanging_chad": {
             "name": "Hanging Chad",
             "unlock": "Beat a Boss Blind with a High Card hand.",
-            "description": "Retrigger <span class=\"hl-orange\">first</span> played card used in scoring <span class=\"hl-orange\">2</span> additional times\n",
+            "description": "Retrigger <span class=\"hl-orange\">first</span> played card used in scoring <span class=\"hl-orange\">2</span> additional times",
             "price": "$4",
             "rarity": "Common",
             "order": 114
         },
         "j_egg": {
             "name": "Egg",
-            "description": "Gains <span class=\"hl-yellow\">$3</span> of <span class=\"hl-orange\">sell value</span> at end of round\n",
+            "description": "Gains <span class=\"hl-yellow\">$3</span> of <span class=\"hl-orange\">sell value</span> at end of round",
             "price": "$4",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1193,7 +1172,7 @@ export const Balatro = {
         },
         "j_walkie_talkie": {
             "name": "Walkie Talkie",
-            "description": "Each played <span class=\"hl-orange\">10</span> or <span class=\"hl-orange\">4</span> gives <span class=\"hl-chips\">+10</span>&nbsp;Chips and <span class=\"hl-mult\">+4</span>&nbsp;Mult when scored\n",
+            "description": "Each played <span class=\"hl-orange\">10</span> or <span class=\"hl-orange\">4</span> gives <span class=\"hl-chips\">+10</span>&nbsp;Chips and <span class=\"hl-mult\">+4</span>&nbsp;Mult when scored",
             "price": "$4",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1201,7 +1180,7 @@ export const Balatro = {
         },
         "j_hallucination": {
             "name": "Hallucination",
-            "description": "<span class=\"hl-green\">1 in 2</span> chance to create a <span class=\"hl-purple\">Tarot</span> card when any <span class=\"hl-orange\">Booster Pack</span> is opened <br> <span style=\"color:#b1b1b1;\">(Must have room)</span>\n",
+            "description": "<span class=\"hl-green\">1 in 2</span> chance to create a <span class=\"hl-purple\">Tarot</span> card when any <span class=\"hl-orange\">Booster Pack</span> is opened <br> <span style=\"color:#b1b1b1;\">(Must have room)</span>",
             "price": "$4",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1209,7 +1188,7 @@ export const Balatro = {
         },
         "j_baseball": {
             "name": "Baseball Card",
-            "description": "<span class=\"hl-green\">Uncommon</span> Jokers each give <span class=\"hl-xmult\">X1.5</span>&nbsp;Mult\n",
+            "description": "<span class=\"hl-green\">Uncommon</span> Jokers each give <span class=\"hl-xmult\">X1.5</span>&nbsp;Mult",
             "price": "$8",
             "rarity": "Rare",
             "unlock": "Available from start.",
@@ -1217,7 +1196,7 @@ export const Balatro = {
         },
         "j_obelisk": {
             "name": "Obelisk",
-            "description": "This Joker gains <span class=\"hl-xmult\">X0.2</span>&nbsp;Mult per <span class=\"hl-orange\">consecutive</span> hand played without playing your most played <span class=\"hl-orange\">poker hand</span> <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-xmult\">X1</span>&nbsp;Mult)</span>\n",
+            "description": "This Joker gains <span class=\"hl-xmult\">X0.2</span>&nbsp;Mult per <span class=\"hl-orange\">consecutive</span> hand played without playing your most played <span class=\"hl-orange\">poker hand</span> <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-xmult\">X1</span>&nbsp;Mult)</span>",
             "price": "$8",
             "rarity": "Rare",
             "unlock": "Available from start.",
@@ -1225,7 +1204,7 @@ export const Balatro = {
         },
         "j_bull": {
             "name": "Bull",
-            "description": "<span class=\"hl-chips\">+2</span>&nbsp;Chips for each <span class=\"hl-yellow\">$1</span> you have <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-chips\">+0</span>&nbsp;Chips)</span>\n",
+            "description": "<span class=\"hl-chips\">+2</span>&nbsp;Chips for each <span class=\"hl-yellow\">$1</span> you have <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-chips\">+0</span>&nbsp;Chips)</span>",
             "price": "$6",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -1233,7 +1212,7 @@ export const Balatro = {
         },
         "j_ancient": {
             "name": "Ancient Joker",
-            "description": "Each played card with <span class=\"hl-orange\">[suit]</span> gives <span class=\"hl-xmult\">X1.5</span>&nbsp;Mult when scored, <br> <span style=\"font-size: 85%;\">suit changes at end of round</span>\n",
+            "description": "Each played card with <span class=\"hl-orange\">[suit]</span> gives <span class=\"hl-xmult\">X1.5</span>&nbsp;Mult when scored, <br> <span style=\"font-size: 85%;\">suit changes at end of round</span>",
             "price": "$8",
             "rarity": "Rare",
             "unlock": "Available from start.",
@@ -1241,7 +1220,7 @@ export const Balatro = {
         },
         "j_hack": {
             "name": "Hack",
-            "description": "Retrigger each played <span class=\"hl-orange\">2</span>, <span class=\"hl-orange\">3</span>, <span class=\"hl-orange\">4</span>, or <span class=\"hl-orange\">5</span>\n",
+            "description": "Retrigger each played <span class=\"hl-orange\">2</span>, <span class=\"hl-orange\">3</span>, <span class=\"hl-orange\">4</span>, or <span class=\"hl-orange\">5</span>",
             "price": "$6",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -1250,7 +1229,7 @@ export const Balatro = {
         "j_rough_gem": {
             "name": "Rough Gem",
             "unlock": "Have at least 30 Diamonds in your deck",
-            "description": "Played cards with <span style=\"color:#f15a27;\">Diamond</span> suit earn <span class=\"hl-yellow\">$1</span> when scored\n",
+            "description": "Played cards with <span style=\"color:#f15a27;\">Diamond</span> suit earn <span class=\"hl-yellow\">$1</span> when scored",
             "price": "$7",
             "rarity": "Uncommon",
             "order": 115
@@ -1258,14 +1237,14 @@ export const Balatro = {
         "j_flower_pot": {
             "name": "Flower Pot",
             "unlock": "Reach Ante Level 8",
-            "description": "<span class=\"hl-xmult\">X3</span>&nbsp;Mult if poker hand contains a <span style=\"color:#f15a27;\">Diamond</span> card, <span style=\"color:#074540;\">Club</span> card, <span style=\"color:#f11b52;\">Heart</span> card, and <span style=\"color:#292189;\">Spade</span> card\n",
+            "description": "<span class=\"hl-xmult\">X3</span>&nbsp;Mult if poker hand contains a <span style=\"color:#f15a27;\">Diamond</span> card, <span style=\"color:#074540;\">Club</span> card, <span style=\"color:#f11b52;\">Heart</span> card, and <span style=\"color:#292189;\">Spade</span> card",
             "price": "$6",
             "rarity": "Uncommon",
             "order": 121
         },
         "j_crazy": {
             "name": "Crazy Joker",
-            "description": "<span class=\"hl-mult\">+12</span>&nbsp;Mult if played hand contains a <span style=\"color:#ff8f00;\">Straight</span>\n",
+            "description": "<span class=\"hl-mult\">+12</span>&nbsp;Mult if played hand contains a <span class=\"hl-hand\">Straight</span>",
             "price": "$4",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1273,7 +1252,7 @@ export const Balatro = {
         },
         "j_four_fingers": {
             "name": "Four Fingers",
-            "description": "All <span style=\"color:#ff8f00;\">Flushes</span> and <span style=\"color:#ff8f00;\">Straights</span> can be made with 4 cards\n",
+            "description": "All <span class=\"hl-hand\">Flushes</span> and <span class=\"hl-hand\">Straights</span> can be made with 4 cards",
             "price": "$7",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -1281,7 +1260,7 @@ export const Balatro = {
         },
         "j_seance": {
             "name": "Séance",
-            "description": "If <span class=\"hl-orange\">poker hand</span> is a <span style=\"color:#ff8f00;\">Straight Flush</span>, create a random <span class=\"hl-sblue\">Spectral</span> card <br> <span style=\"color:#b1b1b1;\">(Must have room)</span>\n",
+            "description": "If <span class=\"hl-orange\">poker hand</span> is a <span class=\"hl-hand\">Straight Flush</span>, create a random <span class=\"hl-sblue\">Spectral</span> card <br> <span style=\"color:#b1b1b1;\">(Must have room)</span>",
             "price": "$6",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -1289,7 +1268,7 @@ export const Balatro = {
         },
         "j_dna": {
             "name": "DNA",
-            "description": "If <span class=\"hl-orange\">first hand</span> of round has only <span class=\"hl-orange\">1</span> card, add a permanent copy to deck and draw it to <span class=\"hl-orange\">hand</span>\n",
+            "description": "If <span class=\"hl-orange\">first hand</span> of round has only <span class=\"hl-orange\">1</span> card, add a permanent copy to deck and draw it to <span class=\"hl-orange\">hand</span>",
             "price": "$8",
             "rarity": "Rare",
             "unlock": "Available from start.",
@@ -1297,7 +1276,7 @@ export const Balatro = {
         },
         "j_flash": {
             "name": "Flash Card",
-            "description": "This Joker gains <span class=\"hl-mult\">+2</span>&nbsp;Mult per <span class=\"hl-orange\">reroll</span> in the shop <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-mult\">+0</span>&nbsp;Mult)</span>\n",
+            "description": "This Joker gains <span class=\"hl-mult\">+2</span>&nbsp;Mult per <span class=\"hl-orange\">reroll</span> in the shop <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-mult\">+0</span>&nbsp;Mult)</span>",
             "price": "$5",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -1305,7 +1284,7 @@ export const Balatro = {
         },
         "j_business": {
             "name": "Business Card",
-            "description": "Played <span class=\"hl-orange\">face</span> cards have a <span class=\"hl-green\">1 in 2</span> chance to give <span class=\"hl-yellow\">$2</span> when scored\n",
+            "description": "Played <span class=\"hl-orange\">face</span> cards have a <span class=\"hl-green\">1 in 2</span> chance to give <span class=\"hl-yellow\">$2</span> when scored",
             "price": "$4",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1314,14 +1293,14 @@ export const Balatro = {
         "j_cartomancer": {
             "name": "Cartomancer",
             "unlock": "Discover every Tarot Card.",
-            "description": "Create a <span class=\"hl-purple\">Tarot</span> card when <span class=\"hl-orange\">Blind</span> is selected <br> <span style=\"color:#b1b1b1;\">(Must have room)</span>\n",
+            "description": "Create a <span class=\"hl-purple\">Tarot</span> card when <span class=\"hl-orange\">Blind</span> is selected <br> <span style=\"color:#b1b1b1;\">(Must have room)</span>",
             "price": "$6",
             "rarity": "Uncommon",
             "order": 141
         },
         "j_dusk": {
             "name": "Dusk",
-            "description": "Retrigger all played cards in <span class=\"hl-orange\">final hand</span> of the round\n",
+            "description": "Retrigger all played cards in <span class=\"hl-orange\">final hand</span> of the round",
             "price": "$5",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -1329,7 +1308,7 @@ export const Balatro = {
         },
         "j_rocket": {
             "name": "Rocket",
-            "description": "Earn <span class=\"hl-yellow\">$1</span> at end of round. Payout increases by <span class=\"hl-yellow\">$2</span> when <span class=\"hl-orange\">Boss Blind</span> is defeated\n",
+            "description": "Earn <span class=\"hl-yellow\">$1</span> at end of round. Payout increases by <span class=\"hl-yellow\">$2</span> when <span class=\"hl-orange\">Boss Blind</span> is defeated",
             "price": "$6",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -1338,14 +1317,14 @@ export const Balatro = {
         "j_sock_and_buskin": {
             "name": "Sock and Buskin",
             "unlock": "Play 300 face cards across all runs.",
-            "description": "Retrigger all played <span class=\"hl-orange\">face</span> cards\n",
+            "description": "Retrigger all played <span class=\"hl-orange\">face</span> cards",
             "price": "$6",
             "rarity": "Uncommon",
             "order": 108
         },
         "j_steel_joker": {
             "name": "Steel Joker",
-            "description": "Gives <span class=\"hl-xmult\">X0.2</span>&nbsp;Mult for each <span class=\"hl-orange\">Steel Card</span> in your <span class=\"hl-orange\">full deck</span> <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-xmult\">X1</span>&nbsp;Mult)</span>\n",
+            "description": "Gives <span class=\"hl-xmult\">X0.2</span>&nbsp;Mult for each <span class=\"hl-orange\">Steel Card</span> in your <span class=\"hl-orange\">full deck</span> <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-xmult\">X1</span>&nbsp;Mult)</span>",
             "price": "$7",
             "rarity": "Uncommon",
             "unlock": "Available from start. (Will not appear in the shop unless the player has a Steel Card in their deck.)",
@@ -1353,7 +1332,7 @@ export const Balatro = {
         },
         "j_popcorn": {
             "name": "Popcorn",
-            "description": "<span class=\"hl-mult\">+20</span>&nbsp;Mult <br> <span class=\"hl-mult\">-4</span>&nbsp;Mult per round played\n",
+            "description": "<span class=\"hl-mult\">+20</span>&nbsp;Mult <br> <span class=\"hl-mult\">-4</span>&nbsp;Mult per round played",
             "price": "$5",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1361,7 +1340,7 @@ export const Balatro = {
         },
         "j_red_card": {
             "name": "Red Card",
-            "description": "This Joker gains <span class=\"hl-mult\">+3</span>&nbsp;Mult when any <span class=\"hl-orange\">Booster Pack</span> is skipped <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-mult\">+0</span>&nbsp;Mult)</span>\n",
+            "description": "This Joker gains <span class=\"hl-mult\">+3</span>&nbsp;Mult when any <span class=\"hl-orange\">Booster Pack</span> is skipped <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-mult\">+0</span>&nbsp;Mult)</span>",
             "price": "$5",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1369,7 +1348,7 @@ export const Balatro = {
         },
         "j_ice_cream": {
             "name": "Ice Cream",
-            "description": "<span class=\"hl-chips\">+100</span>&nbsp;Chips<br><span class=\"hl-chips\">-5</span>&nbsp;Chips for every hand played\n",
+            "description": "<span class=\"hl-chips\">+100</span>&nbsp;Chips<br><span class=\"hl-chips\">-5</span>&nbsp;Chips for every hand played",
             "price": "$5",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1378,14 +1357,14 @@ export const Balatro = {
         "j_smeared": {
             "name": "Smeared Joker",
             "unlock": "Have 3 or more Wild Cards in your deck.",
-            "description": "<span style=\"color:#f11b52;\">Hearts</span> and <span style=\"color:#f15a27;\">Diamonds</span> count as the same suit, <span style=\"color:#292189;\">Spades</span> and <span style=\"color:#074540;\">Clubs</span> count as the same suit\n",
+            "description": "<span style=\"color:#f11b52;\">Hearts</span> and <span style=\"color:#f15a27;\">Diamonds</span> count as the same suit, <span style=\"color:#292189;\">Spades</span> and <span style=\"color:#074540;\">Clubs</span> count as the same suit",
             "price": "$7",
             "rarity": "Uncommon",
             "order": 112
         },
         "j_hologram": {
             "name": "Hologram",
-            "description": "This Joker gains <span class=\"hl-xmult\">X0.25</span>&nbsp;Mult every time a <span class=\"hl-orange\">playing card</span> is added to your deck <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-xmult\">X1</span>&nbsp;Mult)</span>\n",
+            "description": "This Joker gains <span class=\"hl-xmult\">X0.25</span>&nbsp;Mult every time a <span class=\"hl-orange\">playing card</span> is added to your deck <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-xmult\">X1</span>&nbsp;Mult)</span>",
             "price": "$7",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -1393,7 +1372,7 @@ export const Balatro = {
         },
         "j_midas_mask": {
             "name": "Midas Mask",
-            "description": "All played <span class=\"hl-orange\">face</span> cards become <span class=\"hl-orange\">Gold</span> cards when scored\n",
+            "description": "All played <span class=\"hl-orange\">face</span> cards become <span class=\"hl-orange\">Gold</span> cards when scored",
             "price": "$7",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -1401,7 +1380,7 @@ export const Balatro = {
         },
         "j_clever": {
             "name": "Clever Joker",
-            "description": "<span class=\"hl-chips\">+80</span>&nbsp;Chips if played hand contains a <span style=\"color:#ff8f00;\">Two Pair</span>\n",
+            "description": "<span class=\"hl-chips\">+80</span>&nbsp;Chips if played hand contains a <span class=\"hl-hand\">Two Pair</span>",
             "price": "$4",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1410,14 +1389,14 @@ export const Balatro = {
         "j_caino": {
             "name": "Canio",
             "unlock": "Find this Joker from the Soul card.",
-            "description": "This Joker gains <span class=\"hl-xmult\">X1</span>&nbsp;Mult when a <span class=\"hl-orange\">face</span> card is destroyed <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-xmult\">X1</span>&nbsp;Mult)</span>\n",
+            "description": "This Joker gains <span class=\"hl-xmult\">X1</span>&nbsp;Mult when a <span class=\"hl-orange\">face</span> card is destroyed <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-xmult\">X1</span>&nbsp;Mult)</span>",
             "price": "N/A",
             "rarity": "Legendary",
             "order": 145
         },
         "j_erosion": {
             "name": "Erosion",
-            "description": "<span class=\"hl-mult\">+4</span>&nbsp;Mult for each card below <span class=\"hl-orange\">[the deck's starting size]</span> in your full deck <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-mult\">+0</span>&nbsp;Mult)</span>\n",
+            "description": "<span class=\"hl-mult\">+4</span>&nbsp;Mult for each card below <span class=\"hl-orange\">[the deck's starting size]</span> in your full deck <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-mult\">+0</span>&nbsp;Mult)</span>",
             "price": "$6",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -1425,7 +1404,7 @@ export const Balatro = {
         },
         "j_turtle_bean": {
             "name": "Turtle Bean",
-            "description": "<span class=\"hl-orange\">+5</span> hand size, reduces by <span class=\"hl-red\">1</span> each round\n",
+            "description": "<span class=\"hl-orange\">+5</span> hand size, reduces by <span class=\"hl-red\">1</span> each round",
             "price": "$6",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -1433,7 +1412,7 @@ export const Balatro = {
         },
         "j_smiley": {
             "name": "Smiley Face",
-            "description": "Played <span class=\"hl-orange\">face</span> cards give <span class=\"hl-mult\">+5</span>&nbsp;Mult when scored\n",
+            "description": "Played <span class=\"hl-orange\">face</span> cards give <span class=\"hl-mult\">+5</span>&nbsp;Mult when scored",
             "price": "$4",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1441,7 +1420,7 @@ export const Balatro = {
         },
         "j_juggler": {
             "name": "Juggler",
-            "description": "<span class=\"hl-orange\">+1</span> hand size\n",
+            "description": "<span class=\"hl-orange\">+1</span> hand size",
             "price": "$4",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1449,7 +1428,7 @@ export const Balatro = {
         },
         "j_zany": {
             "name": "Zany Joker",
-            "description": "<span class=\"hl-mult\">+12</span>&nbsp;Mult if played hand contains a <span style=\"color:#ff8f00;\">Three of a Kind</span>\n",
+            "description": "<span class=\"hl-mult\">+12</span>&nbsp;Mult if played hand contains a <span class=\"hl-hand\">Three of a Kind</span>",
             "price": "$4",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1457,7 +1436,7 @@ export const Balatro = {
         },
         "j_8_ball": {
             "name": "8 Ball",
-            "description": "<span class=\"hl-green\">1 in 4</span> chance for each played <span class=\"hl-orange\">8</span> to create a <span class=\"hl-purple\">Tarot</span> card when scored<br><span style=\"color:#b1b1b1;\">(Must have room)</span>\n",
+            "description": "<span class=\"hl-green\">1 in 4</span> chance for each played <span class=\"hl-orange\">8</span> to create a <span class=\"hl-purple\">Tarot</span> card when scored<br><span style=\"color:#b1b1b1;\">(Must have room)</span>",
             "price": "$5",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1466,14 +1445,14 @@ export const Balatro = {
         "j_oops": {
             "name": "Oops! All 6s",
             "unlock": "Earn at least 10,000 Chips in a single hand.",
-            "description": "Doubles all <span class=\"hl-orange\">listed</span> <span class=\"hl-green\">probabilities</span> <br> <span class=\"hl-grey\">(ex: <span class=\"hl-green\">1 in 3</span> -&gt; <span class=\"hl-green\">2 in 3</span>)</span>\n",
+            "description": "Doubles all <span class=\"hl-orange\">listed</span> <span class=\"hl-green\">probabilities</span> <br> <span class=\"hl-grey\">(ex: <span class=\"hl-green\">1 in 3</span> -&gt; <span class=\"hl-green\">2 in 3</span>)</span>",
             "price": "$4",
             "rarity": "Uncommon",
             "order": 125
         },
         "j_trading": {
             "name": "Trading Card",
-            "description": "If <span class=\"hl-orange\">first discard</span> of round has only <span class=\"hl-orange\">1</span> card, destroy it and earn <span class=\"hl-yellow\">$3</span>\n",
+            "description": "If <span class=\"hl-orange\">first discard</span> of round has only <span class=\"hl-orange\">1</span> card, destroy it and earn <span class=\"hl-yellow\">$3</span>",
             "price": "$6",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -1482,14 +1461,14 @@ export const Balatro = {
         "j_brainstorm": {
             "name": "Brainstorm",
             "unlock": "Discard a Royal Flush.",
-            "description": "Copies the ability of leftmost <strong><span class=\"hl-orange\">Joker</span></strong>\n",
+            "description": "Copies the ability of leftmost <strong><span class=\"hl-orange\">Joker</span></strong>",
             "price": "$10",
             "rarity": "Rare",
             "order": 137
         },
         "j_trousers": {
             "name": "Spare Trousers",
-            "description": "This Joker gains <span class=\"hl-mult\">+2</span>&nbsp;Mult if played hand contains a <span class=\"hl-orange\">Two Pair</span> <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-mult\">+0</span>&nbsp;Mult)</span>\n",
+            "description": "This Joker gains <span class=\"hl-mult\">+2</span>&nbsp;Mult if played hand contains a <span class=\"hl-orange\">Two Pair</span> <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-mult\">+0</span>&nbsp;Mult)</span>",
             "price": "$6",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -1497,7 +1476,7 @@ export const Balatro = {
         },
         "j_riff_raff": {
             "name": "Riff-Raff",
-            "description": "When <span class=\"hl-orange\">Blind</span> is selected, create <span class=\"hl-orange\">2</span> <span class=\"hl-blue\">Common</span> <span class=\"hl-orange\">Jokers</span> <br> <span style=\"color:#b1b1b1;\">(Must have room)</span>\n",
+            "description": "When <span class=\"hl-orange\">Blind</span> is selected, create <span class=\"hl-orange\">2</span> <span class=\"hl-blue\">Common</span> <span class=\"hl-orange\">Jokers</span> <br> <span style=\"color:#b1b1b1;\">(Must have room)</span>",
             "price": "$6",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1506,7 +1485,7 @@ export const Balatro = {
         "j_acrobat": {
             "name": "Acrobat",
             "unlock": "Play 200 hands",
-            "description": "<span class=\"hl-xmult\">X3</span>&nbsp;Mult on <span class=\"hl-orange\">final hand</span> of round\n",
+            "description": "<span class=\"hl-xmult\">X3</span>&nbsp;Mult on <span class=\"hl-orange\">final hand</span> of round",
             "price": "$6",
             "rarity": "Uncommon",
             "order": 107
@@ -1514,7 +1493,7 @@ export const Balatro = {
         "j_wee": {
             "name": "Wee Joker",
             "unlock": "Win a run in 18 or fewer rounds.",
-            "description": "This Joker gains <span class=\"hl-chips\">+8</span>&nbsp;Chips when each played <span class=\"hl-orange\">2</span> is scored <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-chips\">+0 </span>&nbsp;Chips)</span>\n",
+            "description": "This Joker gains <span class=\"hl-chips\">+8</span>&nbsp;Chips when each played <span class=\"hl-orange\">2</span> is scored <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-chips\">+0 </span>&nbsp;Chips)</span>",
             "price": "$8",
             "rarity": "Rare",
             "order": 123
@@ -1522,14 +1501,14 @@ export const Balatro = {
         "j_family": {
             "name": "The Family",
             "unlock": "Win a run without playing a Four of a Kind.",
-            "description": "<span class=\"hl-xmult\">X4</span>&nbsp;Mult if played hand contains a <span style=\"color:#ff8f00;\">Four of a Kind</span>\n",
+            "description": "<span class=\"hl-xmult\">X4</span>&nbsp;Mult if played hand contains a <span class=\"hl-hand\">Four of a Kind</span>",
             "price": "$8",
             "rarity": "Rare",
             "order": 132
         },
         "j_burglar": {
             "name": "Burglar",
-            "description": "When <span class=\"hl-orange\">Blind</span> is selected, gain <span class=\"hl-blue\">+3</span> Hands and <span class=\"hl-orange\">lose all discards</span>\n",
+            "description": "When <span class=\"hl-orange\">Blind</span> is selected, gain <span class=\"hl-blue\">+3</span> Hands and <span class=\"hl-orange\">lose all discards</span>",
             "price": "$6",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -1537,7 +1516,7 @@ export const Balatro = {
         },
         "j_runner": {
             "name": "Runner",
-            "description": "Gains <span class=\"hl-chips\">+15</span>&nbsp;Chips if played hand contains a <span style=\"color:#ff8f00;\">Straight</span> <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-chips\">+0</span>&nbsp;Chips)</span>\n",
+            "description": "Gains <span class=\"hl-chips\">+15</span>&nbsp;Chips if played hand contains a <span class=\"hl-hand\">Straight</span> <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-chips\">+0</span>&nbsp;Chips)</span>",
             "price": "$5",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1546,14 +1525,14 @@ export const Balatro = {
         "j_bloodstone": {
             "name": "Bloodstone",
             "unlock": "Have at least 30 Hearts in your deck.",
-            "description": "<span class=\"hl-green\">1 in 2</span> chance for played cards with <span style=\"color:#f11b52;\">Heart</span> suit to give <span class=\"hl-xmult\">X1.5</span>&nbsp;Mult when scored\n",
+            "description": "<span class=\"hl-green\">1 in 2</span> chance for played cards with <span style=\"color:#f11b52;\">Heart</span> suit to give <span class=\"hl-xmult\">X1.5</span>&nbsp;Mult when scored",
             "price": "$7",
             "rarity": "Uncommon",
             "order": 116
         },
         "j_delayed_grat": {
             "name": "Delayed Gratification",
-            "description": "Earn <span class=\"hl-yellow\">$2</span> per <span class=\"hl-orange\">discard</span> if no discards are used by end of the round\n",
+            "description": "Earn <span class=\"hl-yellow\">$2</span> per <span class=\"hl-orange\">discard</span> if no discards are used by end of the round",
             "price": "$4",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1561,7 +1540,7 @@ export const Balatro = {
         },
         "j_loyalty_card": {
             "name": "Loyalty Card",
-            "description": "<span class=\"hl-xmult\">X4</span>&nbsp;Mult every <span class=\"hl-orange\">6</span> hands played<br><span class=\"hl-grey\">5 remaining</span>\n",
+            "description": "<span class=\"hl-xmult\">X4</span>&nbsp;Mult every <span class=\"hl-orange\">6</span> hands played<br><span class=\"hl-grey\">5 remaining</span>",
             "price": "$5",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -1569,7 +1548,7 @@ export const Balatro = {
         },
         "j_sixth_sense": {
             "name": "Sixth Sense",
-            "description": "If <span class=\"hl-orange\">first hand</span> of round is a single <span class=\"hl-orange\">6</span>, destroy it and create a <span class=\"hl-sblue\">Spectral</span> card <br> <span style=\"color:#b1b1b1;\">(Must have room)</span>\n",
+            "description": "If <span class=\"hl-orange\">first hand</span> of round is a single <span class=\"hl-orange\">6</span>, destroy it and create a <span class=\"hl-sblue\">Spectral</span> card <br> <span style=\"color:#b1b1b1;\">(Must have room)</span>",
             "price": "$6",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -1577,7 +1556,7 @@ export const Balatro = {
         },
         "j_gros_michel": {
             "name": "Gros Michel",
-            "description": "<span class=\"hl-mult\">+15</span>&nbsp;Mult<br><span class=\"hl-green\">1 in 6</span> chance this is destroyed at the end of round.\n",
+            "description": "<span class=\"hl-mult\">+15</span>&nbsp;Mult<br><span class=\"hl-green\">1 in 6</span> chance this is destroyed at the end of round.",
             "price": "$5",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1585,7 +1564,7 @@ export const Balatro = {
         },
         "j_fibonacci": {
             "name": "Fibonacci",
-            "description": "Each played <span class=\"hl-orange\">Ace</span>, <span class=\"hl-orange\">2</span>, <span class=\"hl-orange\">3</span>, <span class=\"hl-orange\">5</span>, or <span class=\"hl-orange\">8</span> gives <span class=\"hl-mult\">+8</span>&nbsp;Mult when scored\n",
+            "description": "Each played <span class=\"hl-orange\">Ace</span>, <span class=\"hl-orange\">2</span>, <span class=\"hl-orange\">3</span>, <span class=\"hl-orange\">5</span>, or <span class=\"hl-orange\">8</span> gives <span class=\"hl-mult\">+8</span>&nbsp;Mult when scored",
             "price": "$8",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -1593,7 +1572,7 @@ export const Balatro = {
         },
         "j_abstract": {
             "name": "Abstract Joker",
-            "description": "<span class=\"hl-mult\">+3</span>&nbsp;Mult for each <strong><span class=\"hl-orange\">Joker</span></strong> card <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-mult\">+0</span>&nbsp;Mult)</span>\n",
+            "description": "<span class=\"hl-mult\">+3</span>&nbsp;Mult for each <strong><span class=\"hl-orange\">Joker</span></strong> card <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-mult\">+0</span>&nbsp;Mult)</span>",
             "price": "$4",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1601,7 +1580,7 @@ export const Balatro = {
         },
         "j_baron": {
             "name": "Baron",
-            "description": "Each <span class=\"hl-orange\">King</span> held in hand gives <span class=\"hl-xmult\">X1.5</span>&nbsp;Mult\n",
+            "description": "Each <span class=\"hl-orange\">King</span> held in hand gives <span class=\"hl-xmult\">X1.5</span>&nbsp;Mult",
             "price": "$8",
             "rarity": "Rare",
             "unlock": "Available from start.",
@@ -1609,7 +1588,7 @@ export const Balatro = {
         },
         "j_banner": {
             "name": "Banner",
-            "description": "<span class=\"hl-chips\">+30</span>&nbsp;Chips for each remaining <span class=\"hl-orange\">discard</span>\n",
+            "description": "<span class=\"hl-chips\">+30</span>&nbsp;Chips for each remaining <span class=\"hl-orange\">discard</span>",
             "price": "$5",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1618,14 +1597,14 @@ export const Balatro = {
         "j_astronomer": {
             "name": "Astronomer",
             "unlock": "Discover all Planet cards.",
-            "description": "All <span class=\"hl-blue\">Planet</span> cards and <span class=\"hl-blue\">Celestial Packs</span> in the shop are <span class=\"hl-orange\">free</span>\n",
+            "description": "All <span class=\"hl-blue\">Planet</span> cards and <span class=\"hl-blue\">Celestial Packs</span> in the shop are <span class=\"hl-orange\">free</span>",
             "price": "$8",
             "rarity": "Uncommon",
             "order": 142
         },
         "j_mystic_summit": {
             "name": "Mystic Summit",
-            "description": "<span class=\"hl-mult\">+15</span>&nbsp;Mult when <span class=\"hl-orange\">0</span> discards remaining\n",
+            "description": "<span class=\"hl-mult\">+15</span>&nbsp;Mult when <span class=\"hl-orange\">0</span> discards remaining",
             "price": "$5",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1633,7 +1612,7 @@ export const Balatro = {
         },
         "j_chaos": {
             "name": "Chaos the Clown",
-            "description": "<span class=\"hl-orange\">1</span> free <span class=\"hl-green\">Reroll</span> per shop\n",
+            "description": "<span class=\"hl-orange\">1</span> free <span class=\"hl-green\">Reroll</span> per shop",
             "price": "$4",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1642,7 +1621,7 @@ export const Balatro = {
         "j_burnt": {
             "name": "Burnt Joker",
             "unlock": "Sell 50 cards.",
-            "description": "Upgrade the level of the first <span class=\"hl-orange\">discarded</span> poker hand each round\n",
+            "description": "Upgrade the level of the first <span class=\"hl-orange\">discarded</span> poker hand each round",
             "price": "$8",
             "rarity": "Rare",
             "order": 143
@@ -1650,14 +1629,14 @@ export const Balatro = {
         "j_drivers_license": {
             "name": "Driver's License",
             "unlock": "Enhance 16 cards in your deck",
-            "description": "<span class=\"hl-xmult\">X3</span>&nbsp;Mult if you have at least <span class=\"hl-orange\">16</span> Enhanced cards in your full deck <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-orange\">0</span>)</span>\n",
+            "description": "<span class=\"hl-xmult\">X3</span>&nbsp;Mult if you have at least <span class=\"hl-orange\">16</span> Enhanced cards in your full deck <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-orange\">0</span>)</span>",
             "price": "$7",
             "rarity": "Rare",
             "order": 140
         },
         "j_cavendish": {
             "name": "Cavendish",
-            "description": "<span class=\"hl-xmult\">X3</span>&nbsp;Mult <br> <span class=\"hl-green\">1 in 1000</span> chance this card is destroyed at the end of round\n",
+            "description": "<span class=\"hl-xmult\">X3</span>&nbsp;Mult <br> <span class=\"hl-green\">1 in 1000</span> chance this card is destroyed at the end of round",
             "price": "$4",
             "rarity": "Common",
             "unlock": "Available from start. (Will not appear in the shop unless  Gros Michel has destroyed itself during the current run.)",
@@ -1665,7 +1644,7 @@ export const Balatro = {
         },
         "j_photograph": {
             "name": "Photograph",
-            "description": "First played <span class=\"hl-orange\">face</span> card gives <span class=\"hl-xmult\">X2</span>&nbsp;Mult when scored\n",
+            "description": "First played <span class=\"hl-orange\">face</span> card gives <span class=\"hl-xmult\">X2</span>&nbsp;Mult when scored",
             "price": "$5",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1673,7 +1652,7 @@ export const Balatro = {
         },
         "j_misprint": {
             "name": "Misprint",
-            "description": "<span class=\"hl-mult\">+0-23</span>&nbsp;Mult\n",
+            "description": "<span class=\"hl-mult\">+0-23</span>&nbsp;Mult",
             "price": "$4",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1681,7 +1660,7 @@ export const Balatro = {
         },
         "j_cloud_9": {
             "name": "Cloud 9",
-            "description": "Earn <span class=\"hl-yellow\">$1</span> for each <span class=\"hl-orange\">9</span> in your <span class=\"hl-orange\">full deck</span> at end of round <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-yellow\">$4</span>)</span>\n",
+            "description": "Earn <span class=\"hl-yellow\">$1</span> for each <span class=\"hl-orange\">9</span> in your <span class=\"hl-orange\">full deck</span> at end of round <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-yellow\">$4</span>)</span>",
             "price": "$7",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -1689,7 +1668,7 @@ export const Balatro = {
         },
         "j_wrathful_joker": {
             "name": "Wrathful Joker",
-            "description": "Played cards with <span style=\"color:#292189;\">Spade</span> suit give <span class=\"hl-mult\">+3</span>&nbsp;Mult when scored\n",
+            "description": "Played cards with <span style=\"color:#292189;\">Spade</span> suit give <span class=\"hl-mult\">+3</span>&nbsp;Mult when scored",
             "price": "$5",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1697,7 +1676,7 @@ export const Balatro = {
         },
         "j_wily": {
             "name": "Wily Joker",
-            "description": "<span class=\"hl-chips\">+100</span>&nbsp;Chips if played hand contains a <span style=\"color:#ff8f00;\">Three of a Kind</span>\n",
+            "description": "<span class=\"hl-chips\">+100</span>&nbsp;Chips if played hand contains a <span class=\"hl-hand\">Three of a Kind</span>",
             "price": "$4",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1706,14 +1685,14 @@ export const Balatro = {
         "j_invisible": {
             "name": "Invisible Joker",
             "unlock": "Win a game while never having more than 4 jokers.",
-            "description": "After <span class=\"hl-orange\">2</span> rounds, sell this card to <span class=\"hl-orange\">Duplicate</span> a random Joker <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-orange\">0</span>/2)</span> <br> <span class=\"hl-gray\">(Removes <span class=\"hl-sblue\">Negative</span> from copy)</span>\n",
+            "description": "After <span class=\"hl-orange\">2</span> rounds, sell this card to <span class=\"hl-orange\">Duplicate</span> a random Joker <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-orange\">0</span>/2)</span> <br> <span class=\"hl-gray\">(Removes <span class=\"hl-sblue\">Negative</span> from copy)</span>",
             "price": "$8",
             "rarity": "Rare",
             "order": 136
         },
         "j_ride_the_bus": {
             "name": "Ride the Bus",
-            "description": "This Joker gains <span class=\"hl-mult\">+1</span>&nbsp;Mult per <span class=\"hl-orange\">consecutive</span> hand played without a scoring <span class=\"hl-orange\">face</span> card <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-mult\">+0</span>&nbsp;Mult)</span>\n",
+            "description": "This Joker gains <span class=\"hl-mult\">+1</span>&nbsp;Mult per <span class=\"hl-orange\">consecutive</span> hand played without a scoring <span class=\"hl-orange\">face</span> card <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-mult\">+0</span>&nbsp;Mult)</span>",
             "price": "$6",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1722,7 +1701,7 @@ export const Balatro = {
         "j_onyx_agate": {
             "name": "Onyx Agate",
             "unlock": "Have at least 30 Clubs in your deck",
-            "description": "Played cards with <span style=\"color:#074540;\">Club</span> suit give <span class=\"hl-mult\">+7</span>&nbsp;Mult when scored\n",
+            "description": "Played cards with <span style=\"color:#074540;\">Club</span> suit give <span class=\"hl-mult\">+7</span>&nbsp;Mult when scored",
             "price": "$7",
             "rarity": "Uncommon",
             "order": 118
@@ -1730,14 +1709,14 @@ export const Balatro = {
         "j_troubadour": {
             "name": "Troubadour",
             "unlock": "Win 5 consecutive rounds by playing only a single hand in each. (Discards are fine.)",
-            "description": "<span class=\"hl-orange\">+2</span> hand size, <br> <span class=\"hl-blue\">-1</span> hand per round\n",
+            "description": "<span class=\"hl-orange\">+2</span> hand size, <br> <span class=\"hl-blue\">-1</span> hand per round",
             "price": "$6",
             "rarity": "Uncommon",
             "order": 110
         },
         "j_ceremonial": {
             "name": "Ceremonial Dagger",
-            "description": "When <span class=\"hl-orange\">Blind</span> is selected, destroy <strong>Joker</strong> to the right and permanently add <span class=\"hl-orange\">double</span> its sell value to this <span class=\"hl-red\">Mult</span> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-mult\">+0</span>&nbsp;Mult)</span>\n",
+            "description": "When <span class=\"hl-orange\">Blind</span> is selected, destroy <strong>Joker</strong> to the right and permanently add <span class=\"hl-orange\">double</span> its sell value to this <span class=\"hl-red\">Mult</span> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-mult\">+0</span>&nbsp;Mult)</span>",
             "price": "$6",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -1745,7 +1724,7 @@ export const Balatro = {
         },
         "j_mime": {
             "name": "Mime",
-            "description": "Retrigger all card <span class=\"hl-orange\">held in hand</span> abilities\n",
+            "description": "Retrigger all card <span class=\"hl-orange\">held in hand</span> abilities",
             "price": "$5",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -1754,14 +1733,14 @@ export const Balatro = {
         "j_bootstraps": {
             "name": "Bootstraps",
             "unlock": "Have at least 2 Polychrome Jokers at the same time.",
-            "description": "<span class=\"hl-mult\">+2</span>&nbsp;Mult for every <span class=\"hl-yellow\">$5</span> you have <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-mult\">+0</span>&nbsp;Mult)</span>\n",
+            "description": "<span class=\"hl-mult\">+2</span>&nbsp;Mult for every <span class=\"hl-yellow\">$5</span> you have <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-mult\">+0</span>&nbsp;Mult)</span>",
             "price": "$7",
             "rarity": "Uncommon",
             "order": 144
         },
         "j_droll": {
             "name": "Droll Joker",
-            "description": "<span class=\"hl-mult\">+10</span>&nbsp;Mult if played hand contains a <span style=\"color:#ff8f00;\">Flush</span>\n",
+            "description": "<span class=\"hl-mult\">+10</span>&nbsp;Mult if played hand contains a <span class=\"hl-hand\">Flush</span>",
             "price": "$4",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1770,7 +1749,7 @@ export const Balatro = {
         "j_trio": {
             "name": "The Trio",
             "unlock": "Win a run without playing a Three of a Kind.",
-            "description": "<span class=\"hl-xmult\">X3</span>&nbsp;Mult if played hand contains a <span style=\"color:#ff8f00;\">Three of a Kind</span>\n",
+            "description": "<span class=\"hl-xmult\">X3</span>&nbsp;Mult if played hand contains a <span class=\"hl-hand\">Three of a Kind</span>",
             "price": "$8",
             "rarity": "Rare",
             "order": 131
@@ -1778,14 +1757,14 @@ export const Balatro = {
         "j_yorick": {
             "name": "Yorick",
             "unlock": "Find this Joker from the Soul card.",
-            "description": "This Joker gains <span class=\"hl-xmult\">X1</span>&nbsp;Mult every <span class=\"hl-orange\">23</span> <span class=\"hl-gray\">[23]</span> cards discarded<br><span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-xmult\">X1</span>&nbsp;Mult)</span>\n",
+            "description": "This Joker gains <span class=\"hl-xmult\">X1</span>&nbsp;Mult every <span class=\"hl-orange\">23</span> <span class=\"hl-gray\">[23]</span> cards discarded<br><span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-xmult\">X1</span>&nbsp;Mult)</span>",
             "price": "N/A",
             "rarity": "Legendary",
             "order": 147
         },
         "j_odd_todd": {
             "name": "Odd Todd",
-            "description": "Played cards with <span class=\"hl-orange\">odd</span> rank give <span class=\"hl-chips\">+31</span>&nbsp;Chips when scored <br> <span class=\"hl-gray\">(A, 9, 7, 5, 3)</span>\n",
+            "description": "Played cards with <span class=\"hl-orange\">odd</span> rank give <span class=\"hl-chips\">+31</span>&nbsp;Chips when scored <br> <span class=\"hl-gray\">(A, 9, 7, 5, 3)</span>",
             "price": "$4",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1793,7 +1772,7 @@ export const Balatro = {
         },
         "j_faceless": {
             "name": "Faceless Joker",
-            "description": "Earn <span class=\"hl-yellow\">$5</span> if <span class=\"hl-orange\">3</span> or more <span class=\"hl-orange\">face cards</span> are discarded at the same time\n",
+            "description": "Earn <span class=\"hl-yellow\">$5</span> if <span class=\"hl-orange\">3</span> or more <span class=\"hl-orange\">face cards</span> are discarded at the same time",
             "price": "$4",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1801,7 +1780,7 @@ export const Balatro = {
         },
         "j_crafty": {
             "name": "Crafty Joker",
-            "description": "<span class=\"hl-chips\">+80</span>&nbsp;Chips if played hand contains a <span style=\"color:#ff8f00;\">Flush</span>\n",
+            "description": "<span class=\"hl-chips\">+80</span>&nbsp;Chips if played hand contains a <span class=\"hl-hand\">Flush</span>",
             "price": "$4",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1809,7 +1788,7 @@ export const Balatro = {
         },
         "j_scary_face": {
             "name": "Scary Face",
-            "description": "Played <span class=\"hl-orange\">face</span> cards give <span class=\"hl-chips\">+30</span>&nbsp;Chips when scored\n",
+            "description": "Played <span class=\"hl-orange\">face</span> cards give <span class=\"hl-chips\">+30</span>&nbsp;Chips when scored",
             "price": "$4",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1817,7 +1796,7 @@ export const Balatro = {
         },
         "j_joker": {
             "name": "Joker",
-            "description": "<span class=\"hl-mult\">+4</span>&nbsp;Mult\n",
+            "description": "<span class=\"hl-mult\">+4</span>&nbsp;Mult",
             "price": "$2",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1825,7 +1804,7 @@ export const Balatro = {
         },
         "j_to_the_moon": {
             "name": "To the Moon",
-            "description": "Earn an extra <span class=\"hl-yellow\">$1</span> of <span class=\"hl-orange\">interest</span> for every <span class=\"hl-yellow\">$5</span> you have at end of round\n",
+            "description": "Earn an extra <span class=\"hl-yellow\">$1</span> of <span class=\"hl-orange\">interest</span> for every <span class=\"hl-yellow\">$5</span> you have at end of round",
             "price": "$5",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -1834,7 +1813,7 @@ export const Balatro = {
         "j_ticket": {
             "name": "Golden Ticket",
             "unlock": "Play a 5 card hand that contains only Gold cards. (The player must also have a Gold Card in their deck for it to appear in the shop.)",
-            "description": "Played <span class=\"hl-orange\">Gold</span> cards earn <span class=\"hl-yellow\">$4</span> when scored\n",
+            "description": "Played <span class=\"hl-orange\">Gold</span> cards earn <span class=\"hl-yellow\">$4</span> when scored",
             "price": "$5",
             "rarity": "Common",
             "order": 105
@@ -1842,14 +1821,14 @@ export const Balatro = {
         "j_throwback": {
             "name": "Throwback",
             "unlock": "Continue a run from the Main Menu.",
-            "description": "<span class=\"hl-xmult\">X0.25</span>&nbsp;Mult for each <span class=\"hl-orange\">Blind</span> skipped this run <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-xmult\">X1</span>&nbsp;Mult)</span>\n",
+            "description": "<span class=\"hl-xmult\">X0.25</span>&nbsp;Mult for each <span class=\"hl-orange\">Blind</span> skipped this run <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-xmult\">X1</span>&nbsp;Mult)</span>",
             "price": "$6",
             "rarity": "Uncommon",
             "order": 113
         },
         "j_marble": {
             "name": "Marble Joker",
-            "description": "Adds one <span class=\"hl-orange\">Stone</span> card to the deck when <span class=\"hl-orange\">Blind</span> is selected\n",
+            "description": "Adds one <span class=\"hl-orange\">Stone</span> card to the deck when <span class=\"hl-orange\">Blind</span> is selected",
             "price": "$6",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -1858,7 +1837,7 @@ export const Balatro = {
         "j_certificate": {
             "name": "Certificate",
             "unlock": "Have a Gold card with a Gold Seal.",
-            "description": "When round begins, add a random <span class=\"hl-orange\">playing card</span> with a random <span class=\"hl-orange\">seal</span> to your hand\n",
+            "description": "When round begins, add a random <span class=\"hl-orange\">playing card</span> with a random <span class=\"hl-orange\">seal</span> to your hand",
             "price": "$6",
             "rarity": "Uncommon",
             "order": 111
@@ -1866,14 +1845,14 @@ export const Balatro = {
         "j_swashbuckler": {
             "name": "Swashbuckler",
             "unlock": "Sell 20 Jokers.",
-            "description": "Adds the sell value of all other owned <strong><span class=\"hl-orange\">Jokers</span></strong> to Mult <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-mult\">+1</span>&nbsp;Mult)</span>\n",
+            "description": "Adds the sell value of all other owned <strong><span class=\"hl-orange\">Jokers</span></strong> to Mult <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-mult\">+1</span>&nbsp;Mult)</span>",
             "price": "$4",
             "rarity": "Common",
             "order": 109
         },
         "j_diet_cola": {
             "name": "Diet Cola",
-            "description": "Sell this card to create a free <span class=\"hl-orange\">Double Tag</span>\n",
+            "description": "Sell this card to create a free <span class=\"hl-orange\">Double Tag</span>",
             "price": "$6",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -1881,7 +1860,7 @@ export const Balatro = {
         },
         "j_superposition": {
             "name": "Superposition",
-            "description": "Create a <span class=\"hl-purple\">Tarot</span> card if poker hand contains an <span class=\"hl-orange\">Ace</span> and a <span style=\"color:#ff8f00;\">Straight</span> <br> <span style=\"color:#b1b1b1;\">(Must have room)</span>\n",
+            "description": "Create a <span class=\"hl-purple\">Tarot</span> card if poker hand contains an <span class=\"hl-orange\">Ace</span> and a <span class=\"hl-hand\">Straight</span> <br> <span style=\"color:#b1b1b1;\">(Must have room)</span>",
             "price": "$4",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1889,7 +1868,7 @@ export const Balatro = {
         },
         "j_campfire": {
             "name": "Campfire",
-            "description": "This Joker gains <span class=\"hl-xmult\">X0.25</span>&nbsp;Mult for each card <span class=\"hl-orange\">sold</span>, resets when <span class=\"hl-orange\">Boss Blind</span> is defeated <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-xmult\">X1</span>&nbsp;Mult)</span>\n",
+            "description": "This Joker gains <span class=\"hl-xmult\">X0.25</span>&nbsp;Mult for each card <span class=\"hl-orange\">sold</span>, resets when <span class=\"hl-orange\">Boss Blind</span> is defeated <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-xmult\">X1</span>&nbsp;Mult)</span>",
             "price": "$9",
             "rarity": "Rare",
             "unlock": "Available from start.",
@@ -1897,7 +1876,7 @@ export const Balatro = {
         },
         "j_supernova": {
             "name": "Supernova",
-            "description": "Adds the number of times <span class=\"hl-orange\">poker hand</span> has been played this run to Mult\n",
+            "description": "Adds the number of times <span class=\"hl-orange\">poker hand</span> has been played this run to Mult",
             "price": "$5",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1906,14 +1885,14 @@ export const Balatro = {
         "j_stuntman": {
             "name": "Stuntman",
             "unlock": "Earn at least 100 million (100,000,000) Chips in a single hand.",
-            "description": "<span class=\"hl-chips\">+250</span>&nbsp;Chips,<br><span class=\"hl-orange\">-2</span> hand size\n",
+            "description": "<span class=\"hl-chips\">+250</span>&nbsp;Chips,<br><span class=\"hl-orange\">-2</span> hand size",
             "price": "$7",
             "rarity": "Rare",
             "order": 135
         },
         "j_fortune_teller": {
             "name": "Fortune Teller",
-            "description": "<span class=\"hl-mult\">+1</span>&nbsp;Mult per <span class=\"hl-purple\">Tarot</span> card used this run <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-red\">+0</span>)</span>\n",
+            "description": "<span class=\"hl-mult\">+1</span>&nbsp;Mult per <span class=\"hl-purple\">Tarot</span> card used this run <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-red\">+0</span>)</span>",
             "price": "$6",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1921,7 +1900,7 @@ export const Balatro = {
         },
         "j_devious": {
             "name": "Devious Joker",
-            "description": "<span class=\"hl-chips\">+100</span>&nbsp;Chips if played hand contains a <span style=\"color:#ff8f00;\">Straight</span>\n",
+            "description": "<span class=\"hl-chips\">+100</span>&nbsp;Chips if played hand contains a <span class=\"hl-hand\">Straight</span>",
             "price": "$4",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1929,7 +1908,7 @@ export const Balatro = {
         },
         "j_ramen": {
             "name": "Ramen",
-            "description": "<span class=\"hl-xmult\">X2</span>&nbsp;Mult, loses <span class=\"hl-xmult\">X0.01</span>&nbsp;Mult per <span class=\"hl-orange\">card</span> discarded\n",
+            "description": "<span class=\"hl-xmult\">X2</span>&nbsp;Mult, loses <span class=\"hl-xmult\">X0.01</span>&nbsp;Mult per <span class=\"hl-orange\">card</span> discarded",
             "price": "$6",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -1937,7 +1916,7 @@ export const Balatro = {
         },
         "j_stencil": {
             "name": "Joker Stencil",
-            "description": "<span class=\"hl-xmult\">X1</span>&nbsp;Mult for each empty <strong><span class=\"hl-orange\">Joker</span></strong> slot. Joker Stencil included <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-xmult\">X1</span>&nbsp;Mult)</span>\n",
+            "description": "<span class=\"hl-xmult\">X1</span>&nbsp;Mult for each empty <strong><span class=\"hl-orange\">Joker</span></strong> slot. Joker Stencil included <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-xmult\">X1</span>&nbsp;Mult)</span>",
             "price": "$8",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -1946,14 +1925,14 @@ export const Balatro = {
         "j_blueprint": {
             "name": "Blueprint",
             "unlock": "Win 1 run.",
-            "description": "Copies ability of <strong><span class=\"hl-orange\">Joker</span></strong> to the right\n",
+            "description": "Copies ability of <strong><span class=\"hl-orange\">Joker</span></strong> to the right",
             "price": "$10",
             "rarity": "Rare",
             "order": 122
         },
         "j_square": {
             "name": "Square Joker",
-            "description": "This Joker gains <span class=\"hl-chips\">+4</span>&nbsp;Chips if played hand has exactly <span class=\"hl-orange\">4</span> cards <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-chips\">0</span>&nbsp;Chips)</span>\n",
+            "description": "This Joker gains <span class=\"hl-chips\">+4</span>&nbsp;Chips if played hand has exactly <span class=\"hl-orange\">4</span> cards <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-chips\">0</span>&nbsp;Chips)</span>",
             "price": "$4",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1961,7 +1940,7 @@ export const Balatro = {
         },
         "j_splash": {
             "name": "Splash",
-            "description": "Every <span class=\"hl-orange\">played card</span> counts in scoring\n",
+            "description": "Every <span class=\"hl-orange\">played card</span> counts in scoring",
             "price": "$3",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1970,7 +1949,7 @@ export const Balatro = {
         "j_idol": {
             "name": "The Idol",
             "unlock": "In one hand, earn at least 1,000,000 Chips.",
-            "description": "Each played <span class=\"hl-orange\">[rank]</span> of <span class=\"hl-orange\">[suit]</span> gives <span class=\"hl-xmult\">X2</span>&nbsp;Mult when scored<br><small>Card changes every round<small>\n</small></small>",
+            "description": "Each played <span class=\"hl-orange\">[rank]</span> of <span class=\"hl-orange\">[suit]</span> gives <span class=\"hl-xmult\">X2</span>&nbsp;Mult when scored<br><small>Card changes every round<small></small></small>",
             "price": "$6",
             "rarity": "Uncommon",
             "order": 126
@@ -1978,14 +1957,14 @@ export const Balatro = {
         "j_shoot_the_moon": {
             "name": "Shoot the Moon",
             "unlock": "Play every Heart card in your deck in one round.",
-            "description": "Each <span class=\"hl-orange\">Queen</span> held in hand gives <span class=\"hl-mult\">+13</span>&nbsp;Mult\n",
+            "description": "Each <span class=\"hl-orange\">Queen</span> held in hand gives <span class=\"hl-mult\">+13</span>&nbsp;Mult",
             "price": "$5",
             "rarity": "Common",
             "order": 139
         },
         "j_sly": {
             "name": "Sly Joker",
-            "description": "<span class=\"hl-chips\">+50</span>&nbsp;Chips if played hand contains a <span style=\"color:#ff8f00;\">Pair</span>\n",
+            "description": "<span class=\"hl-chips\">+50</span>&nbsp;Chips if played hand contains a <span class=\"hl-hand\">Pair</span>",
             "price": "$3",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -1993,7 +1972,7 @@ export const Balatro = {
         },
         "j_golden": {
             "name": "Golden Joker",
-            "description": "Earn <span class=\"hl-yellow\">$4</span> at end of round\n",
+            "description": "Earn <span class=\"hl-yellow\">$4</span> at end of round",
             "price": "$6",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -2001,7 +1980,7 @@ export const Balatro = {
         },
         "j_credit_card": {
             "name": "Credit Card",
-            "description": "Go up to <span class=\"hl-red\">-$20</span> in debt\n",
+            "description": "Go up to <span class=\"hl-red\">-$20</span> in debt",
             "price": "$1",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -2010,14 +1989,14 @@ export const Balatro = {
         "j_matador": {
             "name": "Matador",
             "unlock": "Defeat a Boss Blind in one hand, without using discards.",
-            "description": "Earn <span class=\"hl-yellow\">$8</span> if played hand triggers the <span class=\"hl-orange\">Boss Blind</span> ability\n",
+            "description": "Earn <span class=\"hl-yellow\">$8</span> if played hand triggers the <span class=\"hl-orange\">Boss Blind</span> ability",
             "price": "$7",
             "rarity": "Uncommon",
             "order": 128
         },
         "j_jolly": {
             "name": "Jolly Joker",
-            "description": "<span class=\"hl-mult\">+8</span>&nbsp;Mult if played hand contains a <span style=\"color:#ff8f00;\">Pair</span>\n",
+            "description": "<span class=\"hl-mult\">+8</span>&nbsp;Mult if played hand contains a <span class=\"hl-hand\">Pair</span>",
             "price": "$3",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -2025,7 +2004,7 @@ export const Balatro = {
         },
         "j_selzer": {
             "name": "Seltzer",
-            "description": "Retrigger all cards played for the next <span class=\"hl-orange\">10</span> hands\n",
+            "description": "Retrigger all cards played for the next <span class=\"hl-orange\">10</span> hands",
             "price": "$6",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -2034,14 +2013,14 @@ export const Balatro = {
         "j_order": {
             "name": "The Order",
             "unlock": "Win a run without playing a Straight.",
-            "description": "<span class=\"hl-xmult\">X3</span>&nbsp;Mult if played hand contains a <span style=\"color:#ff8f00;\">Straight</span>\n",
+            "description": "<span class=\"hl-xmult\">X3</span>&nbsp;Mult if played hand contains a <span class=\"hl-hand\">Straight</span>",
             "price": "$8",
             "rarity": "Rare",
             "order": 133
         },
         "j_lusty_joker": {
             "name": "Lusty Joker",
-            "description": "Played cards with <span style=\"color:#f11b52;\">Heart</span> suit give <span class=\"hl-mult\">+3</span>&nbsp;Mult when scored\n",
+            "description": "Played cards with <span style=\"color:#f11b52;\">Heart</span> suit give <span class=\"hl-mult\">+3</span>&nbsp;Mult when scored",
             "price": "$5",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -2050,14 +2029,14 @@ export const Balatro = {
         "j_seeing_double": {
             "name": "Seeing Double",
             "unlock": "Play a hand that contains four 7 of Clubs.\nOther suits that count as clubs (e.g. wild suits) with rank 7 will also count.",
-            "description": "<span class=\"hl-xmult\">X2</span>&nbsp;Mult if played hand has a scoring <span style=\"color:#074540;\">Club</span> card and a scoring card of any other suit\n",
+            "description": "<span class=\"hl-xmult\">X2</span>&nbsp;Mult if played hand has a scoring <span style=\"color:#074540;\">Club</span> card and a scoring card of any other suit",
             "price": "$6",
             "rarity": "Uncommon",
             "order": 127
         },
         "j_scholar": {
             "name": "Scholar",
-            "description": "Played <span class=\"hl-orange\">Aces</span> give <span class=\"hl-chips\">+20</span>&nbsp;Chips and <span class=\"hl-mult\">+4</span>&nbsp;Mult when scored\n",
+            "description": "Played <span class=\"hl-orange\">Aces</span> give <span class=\"hl-chips\">+20</span>&nbsp;Chips and <span class=\"hl-mult\">+4</span>&nbsp;Mult when scored",
             "price": "$4",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -2065,7 +2044,7 @@ export const Balatro = {
         },
         "j_todo_list": {
             "name": "To Do List",
-            "description": "Earn <span class=\"hl-yellow\">$4</span> if <span class=\"hl-orange\">poker hand</span> is a <span class=\"hl-orange\">[Poker&nbsp;Hand]</span>, poker hand changes at end of round\n",
+            "description": "Earn <span class=\"hl-yellow\">$4</span> if <span class=\"hl-orange\">poker hand</span> is a <span class=\"hl-orange\">[Poker&nbsp;Hand]</span>, poker hand changes at end of round",
             "price": "$4",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -2073,7 +2052,7 @@ export const Balatro = {
         },
         "j_raised_fist": {
             "name": "Raised Fist",
-            "description": "Adds <span class=\"hl-orange\">double</span> the rank of <span class=\"hl-orange\">lowest</span> ranked card held in hand to Mult\n",
+            "description": "Adds <span class=\"hl-orange\">double</span> the rank of <span class=\"hl-orange\">lowest</span> ranked card held in hand to Mult",
             "price": "$5",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -2081,7 +2060,7 @@ export const Balatro = {
         },
         "j_greedy_joker": {
             "name": "Greedy Joker",
-            "description": "Played cards with <span style=\"color:#f15a27;\">Diamond</span> suit give <span class=\"hl-mult\">+3</span>&nbsp;Mult when scored\n",
+            "description": "Played cards with <span style=\"color:#f15a27;\">Diamond</span> suit give <span class=\"hl-mult\">+3</span>&nbsp;Mult when scored",
             "price": "$5",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -2089,7 +2068,7 @@ export const Balatro = {
         },
         "j_reserved_parking": {
             "name": "Reserved Parking",
-            "description": "Each <span class=\"hl-orange\">face</span> card held in hand has a <span class=\"hl-green\">1 in 2</span> chance to give <span class=\"hl-yellow\">$1</span>\n",
+            "description": "Each <span class=\"hl-orange\">face</span> card held in hand has a <span class=\"hl-green\">1 in 2</span> chance to give <span class=\"hl-yellow\">$1</span>",
             "price": "$6",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -2098,14 +2077,14 @@ export const Balatro = {
         "j_satellite": {
             "name": "Satellite",
             "unlock": "Have at least $400.",
-            "description": "Earn <span class=\"hl-yellow\">$1</span> at end of round per unique <span class=\"hl-blue\">Planet</span> card used this run\n",
+            "description": "Earn <span class=\"hl-yellow\">$1</span> at end of round per unique <span class=\"hl-blue\">Planet</span> card used this run",
             "price": "$6",
             "rarity": "Uncommon",
             "order": 138
         },
         "j_castle": {
             "name": "Castle",
-            "description": "This Joker gains <span class=\"hl-chips\">+3</span>&nbsp;Chips per discarded <span class=\"hl-orange\">[suit]</span> card, suit changes every round <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-chips\">+0</span>&nbsp;Chips)</span>\n",
+            "description": "This Joker gains <span class=\"hl-chips\">+3</span>&nbsp;Chips per discarded <span class=\"hl-orange\">[suit]</span> card, suit changes every round <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-chips\">+0</span>&nbsp;Chips)</span>",
             "price": "$6",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -2114,14 +2093,14 @@ export const Balatro = {
         "j_perkeo": {
             "name": "Perkeo",
             "unlock": "Find this Joker from the Soul card.",
-            "description": "Creates a <span class=\"hl-sblue\">Negative</span> copy of <span class=\"hl-orange\">1</span> random <span class=\"hl-orange\">consumable</span> card in your possession at the end of the <span class=\"hl-orange\">shop</span>\n",
+            "description": "Creates a <span class=\"hl-sblue\">Negative</span> copy of <span class=\"hl-orange\">1</span> random <span class=\"hl-orange\">consumable</span> card in your possession at the end of the <span class=\"hl-orange\">shop</span>",
             "price": "N/A",
             "rarity": "Legendary",
             "order": 149
         },
         "j_blackboard": {
             "name": "Blackboard",
-            "description": "<span class=\"hl-xmult\">X3</span>&nbsp;Mult if all cards held in hand are <span style=\"color:#292189;\">Spades</span> or <span style=\"color:#074540;\">Clubs</span>\n",
+            "description": "<span class=\"hl-xmult\">X3</span>&nbsp;Mult if all cards held in hand are <span style=\"color:#292189;\">Spades</span> or <span style=\"color:#074540;\">Clubs</span>",
             "price": "$6",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -2129,7 +2108,7 @@ export const Balatro = {
         },
         "j_pareidolia": {
             "name": "Pareidolia",
-            "description": "All cards are considered <span class=\"hl-orange\">face</span> cards\n",
+            "description": "All cards are considered <span class=\"hl-orange\">face</span> cards",
             "price": "$5",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -2137,7 +2116,7 @@ export const Balatro = {
         },
         "j_vagabond": {
             "name": "Vagabond",
-            "description": "Create a <span class=\"hl-purple\">Tarot</span> card if hand is played with <span class=\"hl-yellow\">$4</span> or less\n",
+            "description": "Create a <span class=\"hl-purple\">Tarot</span> card if hand is played with <span class=\"hl-yellow\">$4</span> or less",
             "price": "$8",
             "rarity": "Rare",
             "unlock": "Available from start.",
@@ -2145,7 +2124,7 @@ export const Balatro = {
         },
         "j_card_sharp": {
             "name": "Card Sharp",
-            "description": "<span class=\"hl-xmult\">X3</span>&nbsp;Mult if played <span class=\"hl-orange\">poker hand</span> has already been played this round\n",
+            "description": "<span class=\"hl-xmult\">X3</span>&nbsp;Mult if played <span class=\"hl-orange\">poker hand</span> has already been played this round",
             "price": "$6",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -2154,7 +2133,7 @@ export const Balatro = {
         "j_tribe": {
             "name": "The Tribe",
             "unlock": "Win a run without playing a Flush.",
-            "description": "<span class=\"hl-xmult\">X2</span>&nbsp;Mult if played hand contains a <span style=\"color:#ff8f00;\">Flush</span>\n",
+            "description": "<span class=\"hl-xmult\">X2</span>&nbsp;Mult if played hand contains a <span class=\"hl-hand\">Flush</span>",
             "price": "$8",
             "rarity": "Rare",
             "order": 134
@@ -2162,7 +2141,7 @@ export const Balatro = {
         "j_mr_bones": {
             "name": "Mr. Bones",
             "unlock": "Lose five runs.",
-            "description": "Prevents Death if chips scored are at least <span class=\"hl-orange\">25%</span> of required chips <br> <span class=\"hl-red\">self destructs</span>\n",
+            "description": "Prevents Death if chips scored are at least <span class=\"hl-orange\">25%</span> of required chips <br> <span class=\"hl-red\">self destructs</span>",
             "price": "$5",
             "rarity": "Uncommon",
             "order": 106
@@ -2170,14 +2149,14 @@ export const Balatro = {
         "j_triboulet": {
             "name": "Triboulet",
             "unlock": "Find this Joker from the Soul card.",
-            "description": "Played Kings and Queens each give <span class=\"hl-xmult\">X2</span>&nbsp;Mult when scored\n",
+            "description": "Played Kings and Queens each give <span class=\"hl-xmult\">X2</span>&nbsp;Mult when scored",
             "price": "N/A",
             "rarity": "Legendary",
             "order": 146
         },
         "j_shortcut": {
             "name": "Shortcut",
-            "description": "Allows <span style=\"color:#ff8f00;\">Straights</span> to be made with gaps of <span class=\"hl-orange\">1 rank</span> <br> <span class=\"hl-gray\">(ex: <span class=\"hl-orange\">10 8 6 5 3</span>)</span>\n",
+            "description": "Allows <span class=\"hl-hand\">Straights</span> to be made with gaps of <span class=\"hl-orange\">1 rank</span> <br> <span class=\"hl-gray\">(ex: <span class=\"hl-orange\">10 8 6 5 3</span>)</span>",
             "price": "$7",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -2185,7 +2164,7 @@ export const Balatro = {
         },
         "j_mail": {
             "name": "Mail-In Rebate",
-            "description": "Earn <span class=\"hl-yellow\">$5</span> for each discarded <span class=\"hl-orange\">[rank]</span>, rank changes every round\n",
+            "description": "Earn <span class=\"hl-yellow\">$5</span> for each discarded <span class=\"hl-orange\">[rank]</span>, rank changes every round",
             "price": "$4",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -2193,7 +2172,7 @@ export const Balatro = {
         },
         "j_madness": {
             "name": "Madness",
-            "description": "When <span class=\"hl-orange\">Small Blind</span> or <span class=\"hl-orange\">Big Blind</span> is selected, gain <span class=\"hl-xmult\">X0.5</span>&nbsp;Mult and <span class=\"hl-orange\">destroy</span> a random Joker <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-xmult\">X1</span>&nbsp;Mult)</span>\n",
+            "description": "When <span class=\"hl-orange\">Small Blind</span> or <span class=\"hl-orange\">Big Blind</span> is selected, gain <span class=\"hl-xmult\">X0.5</span>&nbsp;Mult and <span class=\"hl-orange\">destroy</span> a random Joker <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-xmult\">X1</span>&nbsp;Mult)</span>",
             "price": "$7",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -2201,7 +2180,7 @@ export const Balatro = {
         },
         "j_mad": {
             "name": "Mad Joker",
-            "description": "<span class=\"hl-mult\">+10</span>&nbsp;Mult if played hand contains a <span style=\"color:#ff8f00;\">Two Pair</span>\n",
+            "description": "<span class=\"hl-mult\">+10</span>&nbsp;Mult if played hand contains a <span class=\"hl-hand\">Two Pair</span>",
             "price": "$4",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -2209,7 +2188,7 @@ export const Balatro = {
         },
         "j_gluttenous_joker": {
             "name": "Gluttonous Joker",
-            "description": "Played cards with <span style=\"color:#074540;\">Club</span> suit give <span class=\"hl-mult\">+3</span>&nbsp;Mult when scored\n",
+            "description": "Played cards with <span style=\"color:#074540;\">Club</span> suit give <span class=\"hl-mult\">+3</span>&nbsp;Mult when scored",
             "price": "$5",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -2217,7 +2196,7 @@ export const Balatro = {
         },
         "j_hiker": {
             "name": "Hiker",
-            "description": "Every played <span class=\"hl-orange\">card</span> permanently gains <span class=\"hl-chips\">+5</span>&nbsp;Chips when scored\n",
+            "description": "Every played <span class=\"hl-orange\">card</span> permanently gains <span class=\"hl-chips\">+5</span>&nbsp;Chips when scored",
             "price": "$5",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -2225,7 +2204,7 @@ export const Balatro = {
         },
         "j_blue_joker": {
             "name": "Blue Joker",
-            "description": "<span class=\"hl-chips\">+2</span>&nbsp;Chips for each remaining card in <span class=\"hl-orange\">deck</span> <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-chips\">+104</span>&nbsp;Chips)</span>\n",
+            "description": "<span class=\"hl-chips\">+2</span>&nbsp;Chips for each remaining card in <span class=\"hl-orange\">deck</span> <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-chips\">+104</span>&nbsp;Chips)</span>",
             "price": "$5",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -2233,7 +2212,7 @@ export const Balatro = {
         },
         "j_lucky_cat": {
             "name": "Lucky Cat",
-            "description": "This Joker gains <span class=\"hl-xmult\">X0.25</span>&nbsp;Mult every time a <span class=\"hl-orange\">Lucky</span> card <span class=\"hl-green\">successfully</span> triggers <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-xmult\">X1</span>&nbsp;Mult)</span>\n",
+            "description": "This Joker gains <span class=\"hl-xmult\">X0.25</span>&nbsp;Mult every time a <span class=\"hl-orange\">Lucky</span> card <span class=\"hl-green\">successfully</span> triggers <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-xmult\">X1</span>&nbsp;Mult)</span>",
             "price": "$6",
             "rarity": "Uncommon",
             "unlock": "Available from start. (Will not appear in the shop unless the player has a Lucky Card in their deck.)",
@@ -2241,7 +2220,7 @@ export const Balatro = {
         },
         "j_luchador": {
             "name": "Luchador",
-            "description": "Sell this card to disable the current <span class=\"hl-orange\">Boss Blind</span>\n",
+            "description": "Sell this card to disable the current <span class=\"hl-orange\">Boss Blind</span>",
             "price": "$5",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -2250,14 +2229,14 @@ export const Balatro = {
         "j_merry_andy": {
             "name": "Merry Andy",
             "unlock": "Win a run in 12 or fewer rounds",
-            "description": "<span class=\"hl-red\">+3</span> discards each round, <br><span class=\"hl-red\">-1</span> hand size\n",
+            "description": "<span class=\"hl-red\">+3</span> discards each round, <br><span class=\"hl-red\">-1</span> hand size",
             "price": "$7",
             "rarity": "Uncommon",
             "order": 124
         },
         "j_vampire": {
             "name": "Vampire",
-            "description": "This Joker gains <span class=\"hl-xmult\">X0.1</span>&nbsp;Mult per scoring <span class=\"hl-orange\">Enhanced card</span> played, removes card <span class=\"hl-orange\">Enhancement</span> <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-xmult\">X1</span>&nbsp;Mult)</span>\n",
+            "description": "This Joker gains <span class=\"hl-xmult\">X0.1</span>&nbsp;Mult per scoring <span class=\"hl-orange\">Enhanced card</span> played, removes card <span class=\"hl-orange\">Enhancement</span> <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-xmult\">X1</span>&nbsp;Mult)</span>",
             "price": "$7",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -2265,7 +2244,7 @@ export const Balatro = {
         },
         "j_space": {
             "name": "Space Joker",
-            "description": "<span class=\"hl-green\">1 in 4</span> chance to upgrade level of played <span class=\"hl-orange\">poker hand</span>\n",
+            "description": "<span class=\"hl-green\">1 in 4</span> chance to upgrade level of played <span class=\"hl-orange\">poker hand</span>",
             "price": "$5",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
@@ -2274,14 +2253,14 @@ export const Balatro = {
         "j_hit_the_road": {
             "name": "Hit the Road",
             "unlock": "Discard 5 Jacks at the same time.",
-            "description": "This Joker gains <span class=\"hl-xmult\">X0.5</span>&nbsp;Mult for every <span class=\"hl-orange\">Jack</span> discarded this round <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-xmult\">X1</span>&nbsp;Mult)</span>\n",
+            "description": "This Joker gains <span class=\"hl-xmult\">X0.5</span>&nbsp;Mult for every <span class=\"hl-orange\">Jack</span> discarded this round <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-xmult\">X1</span>&nbsp;Mult)</span>",
             "price": "$8",
             "rarity": "Rare",
             "order": 129
         },
         "j_half": {
             "name": "Half Joker",
-            "description": "<span class=\"hl-mult\">+20</span>&nbsp;Mult if played hand contains <span class=\"hl-orange\">3</span> or fewer cards.\n",
+            "description": "<span class=\"hl-mult\">+20</span>&nbsp;Mult if played hand contains <span class=\"hl-orange\">3</span> or fewer cards.",
             "price": "$5",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -2289,7 +2268,7 @@ export const Balatro = {
         },
         "j_green_joker": {
             "name": "Green Joker",
-            "description": "<span class=\"hl-mult\">+1</span>&nbsp;Mult per hand played <br> <span class=\"hl-mult\">-1</span>&nbsp;Mult per discard <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-mult\">+0</span>&nbsp;Mult)</span>\n",
+            "description": "<span class=\"hl-mult\">+1</span>&nbsp;Mult per hand played <br> <span class=\"hl-mult\">-1</span>&nbsp;Mult per discard <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-mult\">+0</span>&nbsp;Mult)</span>",
             "price": "$4",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -2298,14 +2277,14 @@ export const Balatro = {
         "j_ring_master": {
             "name": "Showman",
             "unlock": "Reach Ante level 4",
-            "description": "<strong><span class=\"hl-orange\">Joker</span></strong>, <span class=\"hl-purple\">Tarot</span>, <span class=\"hl-cyan\">Planet</span>, and <span class=\"hl-sblue\">Spectral</span> cards may appear multiple times\n",
+            "description": "<strong><span class=\"hl-orange\">Joker</span></strong>, <span class=\"hl-purple\">Tarot</span>, <span class=\"hl-cyan\">Planet</span>, and <span class=\"hl-sblue\">Spectral</span> cards may appear multiple times",
             "price": "$5",
             "rarity": "Uncommon",
             "order": 120
         },
         "j_even_steven": {
             "name": "Even Steven",
-            "description": "Played cards with <span class=\"hl-orange\">even</span> rank give <span class=\"hl-mult\">+4</span>&nbsp;Mult when scored <br> <span class=\"hl-gray\">(10, 8, 6, 4, 2)</span>\n",
+            "description": "Played cards with <span class=\"hl-orange\">even</span> rank give <span class=\"hl-mult\">+4</span>&nbsp;Mult when scored <br> <span class=\"hl-gray\">(10, 8, 6, 4, 2)</span>",
             "price": "$4",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -2314,7 +2293,7 @@ export const Balatro = {
         "j_arrowhead": {
             "name": "Arrowhead",
             "unlock": "Have at least 30 Spades in your deck.",
-            "description": "Played cards with <span style=\"color:#292189;\">Spade</span> suit give <span class=\"hl-chips\">+50</span>&nbsp;Chips when scored\n",
+            "description": "Played cards with <span style=\"color:#292189;\">Spade</span> suit give <span class=\"hl-chips\">+50</span>&nbsp;Chips when scored",
             "price": "$7",
             "rarity": "Uncommon",
             "order": 117
@@ -2322,14 +2301,14 @@ export const Balatro = {
         "j_glass": {
             "name": "Glass Joker",
             "unlock": "Have 5 or more Glass cards in your deck. (The player must also have a Glass Card in their deck for it to appear in the shop.)",
-            "description": "This Joker gains <span class=\"hl-xmult\">X0.75</span>&nbsp;Mult for every <span class=\"hl-orange\">Glass Card</span> that is destroyed <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-xmult\">X1</span>&nbsp;Mult)</span>\n",
+            "description": "This Joker gains <span class=\"hl-xmult\">X0.75</span>&nbsp;Mult for every <span class=\"hl-orange\">Glass Card</span> that is destroyed <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-xmult\">X1</span>&nbsp;Mult)</span>",
             "price": "$6",
             "rarity": "Uncommon",
             "order": 119
         },
         "j_stone": {
             "name": "Stone Joker",
-            "description": "Gives <span class=\"hl-chips\">+25</span>&nbsp;Chips for each <span class=\"hl-orange\">Stone Card</span> in your <span class=\"hl-orange\">full deck</span> <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-chips\">+0</span>&nbsp;Chips)</span>\n",
+            "description": "Gives <span class=\"hl-chips\">+25</span>&nbsp;Chips for each <span class=\"hl-orange\">Stone Card</span> in your <span class=\"hl-orange\">full deck</span> <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-chips\">+0</span>&nbsp;Chips)</span>",
             "price": "$6",
             "rarity": "Uncommon",
             "unlock": "Available from start. (Will not appear in the shop unless the player has a Stone Card in their deck.)",
@@ -2338,14 +2317,14 @@ export const Balatro = {
         "j_duo": {
             "name": "The Duo",
             "unlock": "Win a run without playing a Pair.",
-            "description": "<span class=\"hl-xmult\">X2</span>&nbsp;Mult if played hand contains a <span style=\"color:#ff8f00;\">Pair</span>\n",
+            "description": "<span class=\"hl-xmult\">X2</span>&nbsp;Mult if played hand contains a <span class=\"hl-hand\">Pair</span>",
             "price": "$8",
             "rarity": "Rare",
             "order": 130
         },
         "j_drunkard": {
             "name": "Drunkard",
-            "description": "<span class=\"hl-red\">+1</span> discard each round\n",
+            "description": "<span class=\"hl-red\">+1</span> discard each round",
             "price": "$4",
             "rarity": "Common",
             "unlock": "Available from start.",
@@ -2353,7 +2332,7 @@ export const Balatro = {
         },
         "j_constellation": {
             "name": "Constellation",
-            "description": "This Joker gains <span class=\"hl-xmult\">X0.1</span>&nbsp;Mult every time a <span class=\"hl-cyan\">Planet</span> card is used <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-xmult\">X1</span>&nbsp;Mult)</span>\n",
+            "description": "This Joker gains <span class=\"hl-xmult\">X0.1</span>&nbsp;Mult every time a <span class=\"hl-cyan\">Planet</span> card is used <br> <span style=\"color:#b1b1b1;\">(Currently <span class=\"hl-xmult\">X1</span>&nbsp;Mult)</span>",
             "price": "$6",
             "rarity": "Uncommon",
             "unlock": "Available from start.",
