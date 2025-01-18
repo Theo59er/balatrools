@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "Balatrools",
@@ -19,10 +20,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <GoogleAnalytics gaId="G-Q6P1J19EDF" />
+      </Head>
       <body>
         {children}
       </body>
-      <GoogleAnalytics gaId="G-Q6P1J19EDF" />
     </html>
   );
 }
