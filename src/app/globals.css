@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Balatro";
+  src: url("/balatro.ttf");
+}
+
+:root {
+  --bg-1: #0a0a0a;
+  --bg-2: #1a1a1a;
+  --bg-3: #2a2a2a;
+  --bg-4: #3a3a3a;
+
+  --primary-1: #0093ff;
+  --primary-2: #0057a1;
+
+  --danger-1: #ff4c40;
+  --danger-2: #a02721;
+
+  --success-1: #429f79;
+  --success-2: #215f46;
+}
+
+body {
+  background: var(--bg-1);
+  color: white;
+  font-family: "Balatro";
+  text-rendering: optimizeLegibility;
+}
+
+body, p, h1, h2, h3, h4, h5, h6 {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer base {
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+}
+
+@layer utilities {
+  .absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .shadow {
+    /* flat shadow, no gradient, only going down */
+    box-shadow: 0 4px #52525222;
+  }
+
+  .shadow:active {
+    box-shadow: none;
+    transform: translateY(4px);
+  }
+}
+
+.hl-orange {
+  color:#ff8f00
+}
+.hl-yellow {
+  color:#f5b244
+}
+.hl-green {
+  color:#35bd86
+}
+.hl-red {
+  color:#ff4c40
+}
+.hl-gray,
+.hl-grey {
+  color:#b1b1b1
+}
+.hl-purple {
+  color:#7b559c
+}
+.hl-cyan {
+  color:#00a8ca
+}
+.hl-blue {
+  color:#009dff
+}
+.hl-sblue {
+  color:#2e76fd
+}
+.hl-chips {
+  color:#0093ff
+}
+.hl-mult {
+  color:#ff4c40;
+}
+.hl-xmult {
+  color:#fff;
+  background-color:#ff4c40;
+  border-radius:0.4em;
+  padding: 4px;
+}
