@@ -1,16 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { GoogleAnalytics } from "@next/third-parties/google";
-import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "Balatrools",
-  description: "Tools and resources for Balatro",
-  icons: [
-    {
-      url: "/jimbo.jpg",
-    },
-  ]
+  description: "Tools and resources for Balatro, including a save editor, calculator, and more.",
 };
 
 export default function RootLayout({

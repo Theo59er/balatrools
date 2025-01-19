@@ -12,11 +12,11 @@ function StakeButton({ index, selected, setSelectedStake }: { index: number, sel
     const stake = Balatro.Stake[Object.keys(Balatro.Stake)[index] as keyof typeof Balatro.Stake];
 
     return (<div
-        className={"p-2 bg-bg-3 w-full hover:bg-bg-4 shadow cursor-pointer rounded-lg flex flex-col " + (selected ? "bg-primary-1 hover:!bg-primary-2" : "")} 
+        className={"p-2 bg-bg-3 w-full h-full hover:bg-bg-4 shadow cursor-pointer rounded-lg flex flex-col " + (selected ? "bg-primary-1 hover:!bg-primary-2" : "")} 
         onClick={() => setSelectedStake(index)}
     >
-        <Info info={<Stake stake={Object.keys(Balatro.Stake)[index]} />} className="flex flex-col gap-2 w-full" noIcon>
-            <img className="w-full h-full mb-2" src={"stakes/" +stake.name.replace(" ", "_") + ".webp"} />
+        <Info info={<Stake stake={Object.keys(Balatro.Stake)[index]} />} className="flex flex-col flex-wrap gap-2 w-full" noIcon>
+            <img className="mb-2 w-full h-full" src={"stakes/" + stake.name.replace(" ", "_") + ".webp"} />
             <h3 className="text-center">{stake.name.replace(" Stake", "")}</h3>
         </Info>
     </div>);
@@ -52,10 +52,10 @@ export default function ProfileEditor({ data, setData }: { data: ProfileData, se
         <EditorInput label="Playing Cards Bought" type="number" setting="career_stats.c_playing_cards_bought" settings={data} setSettings={setData} />
         <EditorInput label="Cards Sold" type="number" setting="career_stats.c_cards_sold" settings={data} setSettings={setData} />
     
-        <h2>Joker Usage</h2>
+        <Info info="Stats for all jokers. Click on any row to modify the values."><h2>Joker Usage</h2></Info>
         <Info info="Stake to show win/loss data for. Press 'All' to see data for all stakes"><h3>Stake</h3></Info>
         <Button onClick={() => setSelectedStake(-1)} className={selectedStake !== -1 ? "!bg-bg-3 hover:!bg-bg-4" : ""}>All</Button>
-        <div className="flex flex-row gap-2 items-center">
+        <div className="flex flex-row gap-2 items-center w-full">
             {Object.keys(Balatro.Stake).map((_, index) => (
                 <StakeButton key={index} index={index} selected={selectedStake === index} setSelectedStake={setSelectedStake} />
             ))}

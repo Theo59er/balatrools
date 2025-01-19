@@ -50,6 +50,14 @@ body, p, h1, h2, h3, h4, h5, h6 {
     font-size: 1.25rem;
     font-weight: 500;
   }
+
+  a {
+    color: var(--primary-1);
+  }
+
+  a:hover {
+    color: var(--primary-2);
+  }
 }
 
 @layer utilities {

@@ -52,7 +52,7 @@ export default function EditorPage() {
   }
 
   return (
-    <main className="absolute-center h-full p-5 py-10 w-[50%] flex flex-col gap-2">
+    <main className="absolute-center h-full p-5 py-10 lg:w-[50%] md:w-[75%] flex flex-col gap-2">
       <h1>Balatro Save Editor</h1>
       <Subtext>Save files (.jkr) can be found at:{"\n"}
         - Windows: %APPDATA%/Balatro{"\n"}
