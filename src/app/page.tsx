@@ -1,6 +1,5 @@
-import { Calculator, LucideProps, Save } from "lucide-react";
+import { Calculator, Library, LucideProps, Save } from "lucide-react";
 import { IconType } from "react-icons";
-import { GiCardJoker } from "react-icons/gi";
 
 function ToolCard({ name, description, Icon, href }: { name: string; description: string, Icon: React.FC<LucideProps> | IconType, href: string }) {
     return (
@@ -19,7 +18,7 @@ export default function Home() {
         <h2 className="text-white">Tools and resources for Balatro</h2>
         <div className="flex flex-col gap-4 w-full">
             <ToolCard name="Save Editor" description="Edit the various save files in Balatro" Icon={Save} href="/editor" />
-            <ToolCard name="Jokers" description="View all jokers and synergies" Icon={GiCardJoker} href="/wip" />
+            <ToolCard name="Library" description="A library with all jokers, consumables, and everything else you would need to know." Icon={Library} href="/wip" />
             <ToolCard name="Calculator" description="Calculate a hand before playing it" Icon={Calculator} href="/wip" />
         </div>
     </div>)

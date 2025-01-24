@@ -273,14 +273,6 @@ export const Balatro = {
                 "be used immediately"
             ]
         },
-        "purple_seal": {
-            "name": "Purple Seal",
-            "text": [
-                "Creates a {C:tarot}Tarot{} card",
-                "when {C:attention}discarded",
-                "{C:inactive}(Must have room)"
-            ]
-        },
         "p_buffoon_normal": {
             "name": "Buffoon Pack",
             "text": [

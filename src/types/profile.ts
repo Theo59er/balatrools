@@ -69,11 +69,11 @@ export interface ProfileData {
     hand_usage: Partial<Record<string, Usage>>;
     deck_usage: Partial<Record<keyof typeof Balatro.Deck, number>>;
     progress: {
+        overall_tally: number;
+        overall_of: number;
         challenges: Progress;
-        overall_of: Progress;
         joker_stickers: Progress;
         deck_stakes: Progress;
-        overall_tally: Progress;
         discovered: Progress;
     };
     high_scores: {

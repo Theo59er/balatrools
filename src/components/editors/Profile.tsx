@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import EditorInput from "../EditorInput";
 import Info from "../Info";
-import { ProfileData } from "@/types/profile";
+import { ProfileData, Progress } from "@/types/profile";
 import { Balatro } from "@/lib/gamedata";
 import JokerEntry from "../JokerEntry";
 import Input from "../Input";
@@ -23,7 +23,7 @@ function StakeButton({ index, selected, setSelectedStake }: { index: number, sel
 }
 
 export default function ProfileEditor({ data, setData }: { data: ProfileData, setData: (data: ProfileData) => void }) {
-    const [selectedStake, setSelectedStake] = useState<number>(0);
+    const [selectedStake, setSelectedStake] = useState<number>(-1);
     const [jokerSearch, setJokerSearch] = useState<string>("");
 
     return (<>
@@ -76,5 +76,11 @@ export default function ProfileEditor({ data, setData }: { data: ProfileData, se
                 ))}
             </tbody>
         </table>
+        <h2>Progress</h2>
+        <EditorInput label="Overall" type="number" setting="progress.overall_tally" settings={data} setSettings={setData} />
+        <EditorInput label="Challenges" type="number" setting="progress.challenges.tally" settings={data} setSettings={setData} />
+        <EditorInput label="Deck Stakes" type="number" setting="progress.deck_stakes.tally" settings={data} setSettings={setData} />
+        <EditorInput label="Discovered" type="number" setting="progress.discovered.tally" settings={data} setSettings={setData} />
+        <EditorInput label="Joker Stickers" type="number" setting="progress.joker_stickers.tally" settings={data} setSettings={setData} />
     </>);
 }

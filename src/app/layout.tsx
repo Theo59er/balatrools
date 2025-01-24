@@ -4,6 +4,18 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Balatrools",
   description: "Tools and resources for Balatro, including a save editor, calculator, and more.",
+  keywords: ["balatro", "tools", "resources", "save editor", "calculator", "library", "jkr", "balatro save editor", "balatrools"],
+  openGraph: {
+    title: "Balatrools",
+    description: "Tools and resources for Balatro, including a save editor, calculator, and more.",
+    url: "https://balatrools.pages.dev/",
+    siteName: "Balatrools",
+    images: [
+      {
+        url: "https://balatrools.pages.dev/jimbo.jpg",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

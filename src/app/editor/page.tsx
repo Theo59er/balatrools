@@ -62,12 +62,13 @@ export default function EditorPage() {
       <FileInput onFileChange={setFile} />
       {(file && !fileType) && <p>Unknown file type (make sure that the name includes `settings`, `meta`, `profile`, or `save` depending on the type)</p>}
       {(file && !fileData) && <p>There was an error parsing the file data, see console for more info</p>}
+      {(file && fileData) && <Button onClick={download} className="w-full">Download</Button>}
       
       {(file && fileData) && <div className="bg-bg-2 p-2 rounded-lg flex flex-col gap-2">
         <Subtext>Settings marked with <span className="text-red-500">*</span> could damage your save if modified incorrectly</Subtext>
         {fileType === "settings" && <SettingsEditor data={fileData} setData={setFileData} />}
-        {/* {fileType === "meta" && <SettingsEditor data={fileData} />} */}
         {fileType === "profile" && <ProfileEditor data={fileData} setData={setFileData} />}
+        {/* {fileType === "meta" && <SettingsEditor data={fileData} />} */}
         {/* {fileType === "save" && <SettingsEditor data={fileData} />} */}
       </div>}
       {(file && fileData) && <Button onClick={download} className="w-full">Download</Button>}

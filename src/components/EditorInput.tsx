@@ -1,4 +1,4 @@
-import { SettingsData, settingsInfo } from "@/types/settings";
+import { SettingsData, info } from "@/types/settings";
 import Input from "./Input";
 import { MetaData } from "@/types/meta";
 import { ProfileData } from "@/types/profile";
@@ -51,6 +51,6 @@ export default function EditorInput({ label, placeholder, type, setting, setting
         step={step ?? (type === "range" ? 1 : undefined)}
         required={danger}
         onChange={handleChange}
-        info={getNestedSetting(settingsInfo, setting)}
+        info={getNestedSetting(info, setting)}
     />);
 }
