@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { FaGithub } from "react-icons/fa6";
 
 export const metadata: Metadata = {
   title: "Balatrools",
@@ -38,6 +39,10 @@ export default function RootLayout({
       </head>
       <body>
         {children}
+
+        <a className="absolute top-2 right-2 !text-gray-400 hover:!text-white" href="https://github.com/mrdiamonddog/balatrools">
+          <FaGithub size={32} />
+        </a>
       </body>
     </html>
   );
