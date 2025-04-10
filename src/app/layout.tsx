@@ -3,7 +3,7 @@ import "./globals.css";
 import { FaGithub } from "react-icons/fa6";
 
 export const metadata: Metadata = {
-  title: "Balatrools",
+  title: "Balatrools | Balatro Save Editor & Resources",
   description: "Tools and resources for Balatro, including a save editor, calculator, and more.",
   keywords: ["balatro", "tools", "resources", "save editor", "calculator", "library", "jkr", "balatro save editor", "balatrools"],
   openGraph: {
