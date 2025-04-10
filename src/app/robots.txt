@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-
-Sitemap: https://balatrools.pages.dev/sitemap.xml
