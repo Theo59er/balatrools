@@ -86,16 +86,17 @@ export interface TutorialPart {
 }
 
 
-export const info: Partial<Record<string, string | Record<string, string>>> = {
+export const info: Partial<Record<string, string | object>> = {
     "version": "The version of the game this save was made in.",
     "language": "The language code for the displayed language. Make sure you change this to a valid value like `en-us`",
     "profile": "The profile number (1-3) that is selected in the game. May break if changed to a non-existent profile.",
     "crashreports": "Whether or not crash reports are sent to the localthunk",
 
     "progress": {
-        "challenges": "The completion progress of all challenges.",
-        "deck_stakes": "The completion progress of stakes on every deck.",
-        "discovered": "The completion progress of all discoverable items.",
-        "joker_stickers": "The completion progress of stake sticker on every joker. (each joker gets a sticker for winning with it in a stake)"
+        "overall_tally": "The completion progress of all tracked stats. (max 4)",
+        "challenges": { tally: "The completion progress of all challenges. (max 20)" },
+        "deck_stakes": { tally: "The completion progress of stakes on every deck. (max 120)" },
+        "discovered": { tally: "The completion progress of all discoverable items. (max 340)" },
+        "joker_stickers": { tally: "The completion progress of stake sticker on every joker. (each joker gets a sticker for winning with it in a stake) (max 1200)" }
     }
 }

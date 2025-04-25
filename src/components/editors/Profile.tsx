@@ -29,6 +29,13 @@ export default function ProfileEditor({ data, setData }: { data: ProfileData, se
     return (<>
         <Info info="Stats for this profile"><h2>Profile</h2></Info>
         <EditorInput label="Profile Name" type="string" setting="name" settings={data} setSettings={setData} />
+
+        <h2>High Scores</h2>
+        {Object.keys(data.high_scores).map(key => {
+            if (key === "collection" || key === "current_streak") return null;
+            const score = data.high_scores[key as keyof typeof data.high_scores];
+            return <EditorInput key={key} label={score.label} type="number" setting={"high_scores." + key + ".amt"} settings={data} setSettings={setData} />;
+        })}
     
         <h2>Career Stats</h2>
         <EditorInput label="Cards Discarded" type="number" setting="career_stats.c_cards_discarded" settings={data} setSettings={setData} />
@@ -52,6 +59,13 @@ export default function ProfileEditor({ data, setData }: { data: ProfileData, se
         <EditorInput label="Playing Cards Bought" type="number" setting="career_stats.c_playing_cards_bought" settings={data} setSettings={setData} />
         <EditorInput label="Cards Sold" type="number" setting="career_stats.c_cards_sold" settings={data} setSettings={setData} />
     
+        <h2>Progress</h2>
+        <EditorInput label="Overall" type="number" setting="progress.overall_tally" settings={data} setSettings={setData} />
+        <EditorInput label="Challenges" type="number" setting="progress.challenges.tally" settings={data} setSettings={setData} />
+        <EditorInput label="Deck Stakes" type="number" setting="progress.deck_stakes.tally" settings={data} setSettings={setData} />
+        <EditorInput label="Discovered" type="number" setting="progress.discovered.tally" settings={data} setSettings={setData} />
+        <EditorInput label="Joker Stickers" type="number" setting="progress.joker_stickers.tally" settings={data} setSettings={setData} />
+
         <Info info="Stats for all jokers. Click on any row to modify the values."><h2>Joker Usage</h2></Info>
         <Info info="Stake to show win/loss data for. Press 'All' to see data for all stakes"><h3>Stake</h3></Info>
         <Button onClick={() => setSelectedStake(-1)} className={selectedStake !== -1 ? "!bg-bg-3 hover:!bg-bg-4" : ""}>All</Button>
@@ -76,11 +90,5 @@ export default function ProfileEditor({ data, setData }: { data: ProfileData, se
                 ))}
             </tbody>
         </table>
-        <h2>Progress</h2>
-        <EditorInput label="Overall" type="number" setting="progress.overall_tally" settings={data} setSettings={setData} />
-        <EditorInput label="Challenges" type="number" setting="progress.challenges.tally" settings={data} setSettings={setData} />
-        <EditorInput label="Deck Stakes" type="number" setting="progress.deck_stakes.tally" settings={data} setSettings={setData} />
-        <EditorInput label="Discovered" type="number" setting="progress.discovered.tally" settings={data} setSettings={setData} />
-        <EditorInput label="Joker Stickers" type="number" setting="progress.joker_stickers.tally" settings={data} setSettings={setData} />
     </>);
 }
