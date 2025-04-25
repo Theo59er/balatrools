@@ -1,16 +1,17 @@
 import { createElement } from "react";
 import Info from "./Info";
 
-export default function Input(props: React.InputHTMLAttributes<HTMLInputElement> & { multiline?: boolean | "true"; label?: string; info?: string }) {
+export default function Input(props: React.InputHTMLAttributes<HTMLInputElement> &
+    { multiline?: boolean | "true"; label?: string; info?: string }) {
     const Component = props.multiline ? "textarea" : "input";
 
-    return (<div className={"flex " + (props.type === "checkbox" ? "flex-row gap-2" : "flex-col") + " " + (props.className ?? "")}>
+    return (<div className={`flex ${props.type === "checkbox" ? "flex-row gap-2" : "flex-col"} ${props.className ?? ""}`}>
         {(props.label && props.type !== "checkbox") && (
             <label className="text-white">
-                {props.info ? 
-                    <Info info={props.info}>{props.label} {props.required && <span className="text-red-500">*</span>}</Info> : 
+                {props.info ?
+                    <Info info={props.info}>{props.label} {props.required && <span className="text-red-500">*</span>}</Info> :
                     <>{props.label} {props.required && <span className="text-red-500">*</span>}</>
-                } 
+                }
             </label>
         )}
         {createElement(Component, {
@@ -20,10 +21,10 @@ export default function Input(props: React.InputHTMLAttributes<HTMLInputElement>
         })}
         {(props.label && props.type === "checkbox") && (
             <label className="text-white">
-                {props.info ? 
-                    <Info info={props.info}>{props.label} {props.required && <span className="text-red-500">*</span>}</Info> : 
+                {props.info ?
+                    <Info info={props.info}>{props.label} {props.required && <span className="text-red-500">*</span>}</Info> :
                     <>{props.label} {props.required && <span className="text-red-500">*</span>}</>
-                } 
+                }
             </label>
         )}
     </div>);

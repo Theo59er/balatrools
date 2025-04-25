@@ -1,4 +1,4 @@
-import { Balatro, DiscoverableItem } from "@/lib/gamedata"
+import { Balatro, DiscoverableItem } from "@/lib/gamedata";
 
 export type MetaData = {
     alerted: Partial<Record<DiscoverableItem, boolean>>;

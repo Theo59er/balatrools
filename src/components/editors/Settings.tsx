@@ -14,17 +14,29 @@ export default function SettingsEditor({ data, setData }: { data: SettingsData, 
         <EditorInput label="Tutorial Complete" type="checkbox" setting="tutorial_complete" settings={data} setSettings={setData} />
         <EditorInput label="Run Stake Stickers" type="checkbox" setting="run_stake_stickers" settings={data} setSettings={setData} />
         <EditorInput label="Game Speed" type="number" setting="GAMESPEED" settings={data} setSettings={setData} />
-        <EditorInput label="Screenshake" type="range" setting="screenshake" min={0} max={100} step={1} settings={data} setSettings={setData} />
-    
+        <EditorInput
+            label="Screenshake" type="range" setting="screenshake" min={0} max={100} step={1} settings={data} setSettings={setData} />
+
         <h2>Sound</h2>
-        <EditorInput label="Master Volume" type="range" setting="SOUND.volume" min={0} max={100} step={1} settings={data} setSettings={setData} />
-        <EditorInput label="Music Volume" type="range" setting="SOUND.music_volume" min={0} max={100} step={1} settings={data} setSettings={setData} />
-        <EditorInput label="Sound Effect Volume" type="range" setting="SOUND.game_sounds_volume" min={0} max={100} step={1} settings={data} setSettings={setData} />
-    
+        <EditorInput
+            label="Master Volume" type="range" setting="SOUND.volume" min={0} max={100} step={1}
+            settings={data} setSettings={setData} />
+        <EditorInput
+            label="Music Volume" type="range" setting="SOUND.music_volume" min={0} max={100} step={1}
+            settings={data} setSettings={setData} />
+        <EditorInput
+            label="Sound Effect Volume" type="range" setting="SOUND.game_sounds_volume" min={0} max={100} step={1}
+            settings={data} setSettings={setData} />
+
         <h2>Graphics</h2>
-        <EditorInput label="CRT" type="range" setting="GRAPHICS.crt" min={0} max={100} step={1} settings={data} setSettings={setData} />
-        <EditorInput label="Bloom" type="range" setting="GRAPHICS.bloom" min={1} max={2} step={1} settings={data} setSettings={setData} />
-        <EditorInput label="Texture Scaling" type="range" setting="GRAPHICS.texture_scaling" min={1} max={2} step={1} settings={data} setSettings={setData} />
-        <EditorInput label="Shadows" type="checkbox" setting="GRAPHICS.shadows" settings={data} setSettings={setData} />
+        <EditorInput
+            label="CRT" type="range" setting="GRAPHICS.crt" min={0} max={100} step={1} settings={data} setSettings={setData} />
+        <EditorInput
+            label="Bloom" type="range" setting="GRAPHICS.bloom" min={1} max={2} step={1} settings={data} setSettings={setData} />
+        <EditorInput
+            label="Texture Scaling" type="range" setting="GRAPHICS.texture_scaling" min={1} max={2} step={1}
+            settings={data} setSettings={setData} />
+        <EditorInput
+            label="Shadows" type="checkbox" setting="GRAPHICS.shadows" settings={data} setSettings={setData} />
     </>);
 }

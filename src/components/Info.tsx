@@ -1,7 +1,8 @@
 import { InfoIcon } from "lucide-react";
 import React, { useState } from "react";
 
-export default function Info({ children, info, className, noIcon }: { children: React.ReactNode, info: React.ReactNode, className?: string, noIcon?: boolean }) {
+export default function Info({ children, info, className, noIcon }:
+    { children: React.ReactNode, info: React.ReactNode, className?: string, noIcon?: boolean }) {
     const [mouseX, setMouseX] = useState(0);
     const [mouseY, setMouseY] = useState(0);
 
@@ -21,7 +22,7 @@ export default function Info({ children, info, className, noIcon }: { children: 
         {!noIcon && <InfoIcon className="text-primary ml-1" size={16} />}
 
         <div inert className="absolute invisible group-hover:visible bg-bg-4 text-white text-sm rounded p-2 z-10"
-            style={{ left: mouseX, top: mouseY, width: '300px' }}>
+            style={{ left: mouseX, top: mouseY, width: "300px" }}>
             {info}
         </div>
     </div>);

@@ -1,9 +1,10 @@
 import { useState } from "react";
 import Button from "./Button";
 
-export default function FileInput(props: React.InputHTMLAttributes<HTMLInputElement> & { onFileChange?: (file: File | null) => void }) {
+export default function FileInput(props: React.InputHTMLAttributes<HTMLInputElement> &
+    { onFileChange?: (file: File | null) => void }) {
     const [file, setFile] = useState<File | null>(null);
-    
+
     function onClick() {
         const input = document.createElement("input");
         input.type = "file";
@@ -17,10 +18,10 @@ export default function FileInput(props: React.InputHTMLAttributes<HTMLInputElem
         };
         input.click();
     }
-    
+
     return (
         <div className="flex flex-col gap-2 bg-bg-1">
             <Button onClick={onClick}>{file ? file.name : "Choose File"}</Button>
         </div>
-    )
+    );
 }

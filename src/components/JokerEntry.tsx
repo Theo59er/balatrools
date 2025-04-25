@@ -8,7 +8,8 @@ import { useState } from "react";
 import Dialog from "./Dialog";
 import { createPortal } from "react-dom";
 
-export default function JokerEntry({ jokerKey, profile, setProfile, stake }: { stake: number, jokerKey: string; profile: ProfileData; setProfile: (settings: ProfileData) => void }) {
+export default function JokerEntry({ jokerKey, profile, setProfile, stake }:
+    { stake: number, jokerKey: string; profile: ProfileData; setProfile: (settings: ProfileData) => void }) {
     const joker = Balatro.Joker[jokerKey as keyof typeof Balatro.Joker];
     const usageData = profile.joker_usage[jokerKey as keyof typeof Balatro.Joker];
 
@@ -43,7 +44,7 @@ export default function JokerEntry({ jokerKey, profile, setProfile, stake }: { s
                 ...profile.joker_usage,
                 [jokerKey]: {
                     ...usageData,
-                    count: count,
+                    count,
                     wins: winsArray,
                     losses: lossesArray,
                 },
@@ -51,30 +52,30 @@ export default function JokerEntry({ jokerKey, profile, setProfile, stake }: { s
         });
     }
 
-    const dialog = <Dialog open={editorOpen} onClose={() => setEditorOpen(false)} title={"Editing " + joker.name + " Stats"}>
+    const dialog = <Dialog open={editorOpen} onClose={() => setEditorOpen(false)} title={`Editing ${joker.name} Stats`}>
         <div className="grid grid-cols-3 gap-2">
             <p>Rounds Complete</p>
             <p>Wins ({stakeData?.name ?? "All Stakes"})</p>
             <p>Losses ({stakeData?.name ?? "All Stakes"})</p>
-            <Input 
-                type="number" 
-                value={usageData?.count ?? 0} 
-                onChange={e => updateUsageData(parseInt(e.target.value), usageData?.wins[stake] ?? 0, usageData?.losses[stake] ?? 0)} 
+            <Input
+                type="number"
+                value={usageData?.count ?? 0}
+                onChange={e => updateUsageData(parseInt(e.target.value), usageData?.wins[stake] ?? 0, usageData?.losses[stake] ?? 0)}
             />
-            <Input 
-                type="number" 
+            <Input
+                type="number"
                 disabled={stake === -1}
-                value={usageData?.wins[stake] ?? 0} 
+                value={usageData?.wins[stake] ?? 0}
                 onChange={e => updateUsageData(usageData?.count ?? 0, parseInt(e.target.value), usageData?.losses[stake] ?? 0)}
             />
-            <Input 
-                type="number" 
+            <Input
+                type="number"
                 disabled={stake === -1}
-                value={usageData?.losses[stake] ?? 0} 
+                value={usageData?.losses[stake] ?? 0}
                 onChange={e => updateUsageData(usageData?.count ?? 0, usageData?.wins[stake] ?? 0, parseInt(e.target.value))}
             />
         </div>
-    </Dialog>;    
+    </Dialog>;
 
     return (<>
         <tr className="odd:bg-bg-3 cursor-pointer" onClick={() => setEditorOpen(!editorOpen)}>

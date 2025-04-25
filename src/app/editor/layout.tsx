@@ -6,7 +6,8 @@ export const metadata: Metadata = {
     keywords: ["balatro", "save", "editor", "jkr", "cheat", "balatro save editor", "balatrools"],
     openGraph: {
         title: "Balatro Save Editor | Balatrools",
-        description: "Simple save editor for Balatro .jkr files to change whatever you want. Save a run, cheat, or un-break your game!",
+        description:
+        "Simple save editor for Balatro .jkr files to change whatever you want. Save a run, cheat, or un-break your game!",
         url: "https://balatrools.pages.dev/editor",
         siteName: "Balatrools",
         images: [
@@ -15,11 +16,11 @@ export const metadata: Metadata = {
             },
         ],
     },
-}
+};
 
 export default function RootLayout({
     children,
-  }: Readonly<{
+}: Readonly<{
     children: React.ReactNode;
   }>) {
     return (<>{children}</>);

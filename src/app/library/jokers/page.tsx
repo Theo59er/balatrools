@@ -12,5 +12,5 @@ export default function JokersLibrary() {
                 ))}
             </div>
         </div>
-    )
+    );
 }

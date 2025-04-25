@@ -5,10 +5,10 @@ export default function Joker({ joker }: { joker: string }) {
 
     return (<div className="flex flex-row gap-2 max-w-[300px]">
         {/* é is for séance */}
-        <img 
-            loading="lazy" 
-            src={"/jokers/" + jokerObj.name.replaceAll(" ", "_").replace("é", "_") + ".webp"} 
-            className="h-full" 
+        <img
+            loading="lazy"
+            src={`/jokers/${jokerObj.name.replaceAll(" ", "_").replace("é", "_")}.webp`}
+            className="h-full"
         />
         <div className="flex flex-col gap-2">
             <h3>{jokerObj.name}</h3>
