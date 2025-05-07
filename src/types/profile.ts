@@ -54,39 +54,30 @@ export interface ProfileData {
         c_cards_sold: number;
     };
     joker_usage: Partial<Record<keyof typeof Balatro.Joker, JokerStats>>;
+    unlocked_jokers: string[];  // Array von Joker-Keys
     MEMORY: {
         deck: string;
         stake: number;
     };
     deck_stakes: {};
-    voucher_usage: Partial<Record<keyof typeof Balatro.Voucher, Usage>>;
-    stake: number;
-    challenge_progress: {
-        unlocked: {};
-        completed: {};
-    };
-    consumeable_usage: Partial<Record<Consumable, Usage>>;
-    hand_usage: Partial<Record<string, Usage>>;
-    deck_usage: Partial<Record<keyof typeof Balatro.Deck, number>>;
     progress: {
         overall_tally: number;
-        overall_of: number;
         challenges: Progress;
-        joker_stickers: Progress;
         deck_stakes: Progress;
         discovered: Progress;
+        joker_stickers: Progress;
     };
     high_scores: {
-        furthest_round: HighScore;
-        win_streak: HighScore;
-        furthest_ante: HighScore;
-        collection: HighScore;
-        current_streak: HighScore;
-        boss_streak: HighScore;
-        poker_hand: HighScore;
-        hand: HighScore;
-        most_money: HighScore;
+        [key: string]: HighScore;
     };
     name: string;
-    challenges_unlocked: number;
+    unlocks: {
+        challenges: Usage[];
+        consumables: Record<keyof typeof Consumable, Usage>;
+        deck_stakes: Usage[];
+        discovered: Record<string, Usage>;
+        joker_stickers: Usage[];
+    };
+    deck_usage: Record<string, DeckUsage>;
+    version: number;
 }

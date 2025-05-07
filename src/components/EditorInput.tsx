@@ -30,28 +30,30 @@ function updateNestedSetting(settings: any, path: string, value: any): any {
 }
 
 function getNestedSetting(settings: any, path: string): any {
-    return path.split(".").reduce((obj, key) => obj?.[key], settings);
+    const value = path.split(".").reduce((obj, key) => obj?.[key], settings);
+    return value ?? false; // Standardwert für undefined
 }
 
 export default function EditorInput({ label, placeholder, type, setting, settings, min, max, step, danger, setSettings }: Props) {
     function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
         const value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
-        const updatedSettings =
-            updateNestedSetting(settings, setting as string, type === "number" ? parseFloat(value as string) : value);
+        const updatedSettings = updateNestedSetting(settings, setting, type === "number" ? parseFloat(value as string) : value);
         setSettings(updatedSettings);
     }
 
+    // Stelle sicher, dass value immer einen definierten Wert hat
+    const currentValue = getNestedSetting(settings, setting);
+
     return (<Input
         type={type}
-        label={label && label + (type === "range" ? ` (${getNestedSetting(settings, setting)})` : "")}
+        label={label && label + (type === "range" ? ` (${currentValue})` : "")}
         placeholder={placeholder}
-        value={getNestedSetting(settings, setting) as string | number}
-        checked={type === "checkbox" ? getNestedSetting(settings, setting) as boolean : undefined}
+        value={type === "checkbox" ? undefined : (currentValue ?? "")}
+        checked={type === "checkbox" ? Boolean(currentValue) : undefined}
         min={type === "range" ? min : undefined}
         max={type === "range" ? max : undefined}
         step={step ?? (type === "range" ? 1 : undefined)}
         required={danger}
         onChange={handleChange}
-        info={getNestedSetting(info, setting)}
     />);
 }

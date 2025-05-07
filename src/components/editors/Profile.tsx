@@ -30,9 +30,49 @@ export default function ProfileEditor({ data, setData }: { data: ProfileData, se
     const [selectedStake, setSelectedStake] = useState<number>(-1);
     const [jokerSearch, setJokerSearch] = useState<string>("");
 
+    // Stelle sicher, dass joker_usage und unlocked_jokers existieren
+    useEffect(() => {
+        if (!data.joker_usage || !data.unlocked_jokers) {
+            setData({
+                ...data,
+                joker_usage: data.joker_usage || {},
+                unlocked_jokers: data.unlocked_jokers || []
+            });
+        }
+    }, [data]);
+
+    const unlockAllJokers = () => {
+        const jokerList = Object.keys(Balatro.Joker);
+        const stakeCount = Object.keys(Balatro.Stake).length;
+        
+        setData({
+            ...data,
+            joker_usage: jokerList.reduce((acc, key) => ({
+                ...acc,
+                [key]: {
+                    count: 0,
+                    wins: Array(stakeCount).fill(0),
+                    losses: Array(stakeCount).fill(0)
+                }
+            }), {}),
+            unlocked_jokers: jokerList // Füge alle Joker zum Array hinzu
+        });
+    };
+
     return (<>
         <Info info="Stats for this profile"><h2>Profile</h2></Info>
         <EditorInput label="Profile Name" type="string" setting="name" settings={data} setSettings={setData} />
+
+        <h2>Joker Management</h2>
+        <div className="flex justify-between items-center mb-2">
+            <h3>Joker List</h3>
+            <button 
+                className="px-4 py-2 bg-bg-3 hover:bg-bg-4 rounded"
+                onClick={unlockAllJokers}
+            >
+                Alle Joker freischalten
+            </button>
+        </div>
 
         <h2>High Scores</h2>
         {Object.keys(data.high_scores).map(key => {
