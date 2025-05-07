@@ -24,6 +24,53 @@ A powerful collection of tools and resources for Balatro game file manipulation 
 - `.profile` files
 - `.meta` files
 
+## Installation & Setup Guide 🛠️
+
+### Prerequisites
+- Node.js (v18 or higher) 📦
+- pnpm (v9 or lower) 🔧
+
+### Quick Start ⚡
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/balatrools.git
+
+# Navigate to project directory
+cd balatrools
+
+# Install dependencies
+pnpm install
+
+# Start development server
+pnpm dev
+```
+
+Your development server will be running at http://localhost:3000 🚀
+
+### Available Commands 💻
+
+| Command | Description |
+|---------|------------|
+| `pnpm dev` | Start development server with Turbopack |
+| `pnpm build` | Create production build |
+| `pnpm start` | Run production server |
+| `pnpm lint` | Run ESLint code checks |
+
+### Technical Details 🔍
+
+- **Framework**: Next.js with React 19
+- **Language**: TypeScript
+- **Package Manager**: pnpm
+- **Node Version**: ≥18.0.0
+
+### Development Notes 📝
+
+- The project uses Next.js with Turbopack for enhanced development experience
+- All code is strictly typed with TypeScript
+- Supports editing of `.save`, `.profile`, and `.settings` files
+- Features JSON visualization and editing capabilities
+
 ## Getting Started 🚀
 
 1. Select your file type in the editor
@@ -34,4 +81,6 @@ A powerful collection of tools and resources for Balatro game file manipulation 
 ## Legal Notice
 
 All rights reserved to Balatro and localthunk for sprites and other assets.
+
+![Balatrools Preview](TJoker.png)
 
