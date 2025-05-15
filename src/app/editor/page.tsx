@@ -1,3 +1,13 @@
+/**
+ * Der Haupteditor für Balatro Saves - hier läuft alles zusammen!
+ * Hier können Spieler ihre .jkr Dateien hochladen und bearbeiten.
+ * Der Editor synchronisiert Änderungen zwischen meta.jkr, save.jkr und profile.jkr.
+ * 
+ * The main editor for Balatro saves - this is where everything comes together!
+ * Players can upload and edit their .jkr files here.
+ * The editor synchronizes changes between meta.jkr, save.jkr and profile.jkr.
+ */
+
 "use client";
 
 import Button from "@/components/Button";
@@ -14,18 +24,106 @@ import dynamic from 'next/dynamic';
 const SaveEditor = dynamic(() => import("@/components/editors/Save"));
 const MetaEditor = dynamic(() => import("@/components/editors/Meta"));
 
+/**
+ * Definiert den Typ einer hochgeladenen Datei mit ihren Eigenschaften
+ * 
+ * Defines the type of an uploaded file with its properties
+ */
 interface FileEntry {
-    file: File;
-    data: any;
-    type: "settings" | "meta" | "profile" | "save" | null;
+    file: File;           // Die originale Datei / The original file
+    type: string | null;  // Der Dateityp (meta/save/profile/settings) / The file type
+    data: any;           // Der geparste JSON-Inhalt / The parsed JSON content
 }
 
 export default function EditorPage() {
+    // Speichert alle hochgeladenen Dateien
+    // Stores all uploaded files
     const [files, setFiles] = useState<FileEntry[]>([]);
+
+    // Die aktuell ausgewählte Datei
+    // Currently selected file
     const [selectedIndex, setSelectedIndex] = useState<number>(-1);
+
+    // Zeigt Fehlermeldungen an
+    // Shows error messages
     const [error, setError] = useState<string | null>(null);
+
+    // Schaltet zwischen normalem Editor und JSON-Ansicht um
+    // Toggles between normal editor and JSON view
     const [editorMode, setEditorMode] = useState<"normal" | "json">("normal");
 
+    // Prüft ob alle benötigten Dateien da sind
+    // Checks if all required files are present
+    const hasAllRequiredFiles = 
+        files.some(f => f.type === "meta") &&
+        files.some(f => f.type === "save") &&
+        files.some(f => f.type === "profile");
+
+    // Die aktuell ausgewählte Datei oder null
+    // The currently selected file or null
+    const selectedFile = selectedIndex >= 0 ? files[selectedIndex] : null;
+
+    /**
+     * Synchronisiert Joker-Zustände zwischen den Dateien
+     * Wenn ein Joker in einer Datei freigeschaltet/gesperrt wird,
+     * wird dieser Status in allen anderen Dateien übernommen.
+     * 
+     * Synchronizes joker states between files
+     * When a joker is unlocked/locked in one file,
+     * this state is propagated to all other files.
+     */
+    const syncJokerStates = (updatedFileIndex: number, newData: any) => {
+        const updatedFiles = [...files];
+        const updatedFile = updatedFiles[updatedFileIndex];
+        
+        if (!updatedFile) return;
+
+        // Findet Meta- und Save-Dateien
+        // Finds meta and save files
+        const metaFile = updatedFiles.find(f => f.type === "meta");
+        const saveFile = updatedFiles.find(f => f.type === "save");
+        const profileFile = updatedFiles.find(f => f.type === "profile");
+
+        // Aktualisiert zuerst die aktuelle Datei
+        // Updates the current file first
+        updatedFiles[updatedFileIndex] = { ...updatedFile, data: newData };
+
+        if (updatedFile.type === "meta" && saveFile) {
+            // Synchronisiert von Meta zu Save
+            // Syncs from meta to save
+            saveFile.data.unlocked = { ...newData.unlocked };
+        } else if (updatedFile.type === "save" && metaFile) {
+            // Synchronisiert von Save zu Meta
+            // Syncs from save to meta
+            metaFile.data.unlocked = { ...newData.unlocked };
+            metaFile.data.discovered = { ...newData.unlocked }; // Markiert auch als entdeckt / Also marks as discovered
+        }
+
+        // Aktualisiert das unlocked_jokers Array des Profils
+        // Updates profile's unlocked_jokers array
+        if (profileFile && (updatedFile.type === "meta" || updatedFile.type === "save")) {
+            const newUnlockedJokers = Object.entries(newData.unlocked)
+                .filter(([_, isUnlocked]) => isUnlocked)
+                .map(([key]) => key);
+            
+            profileFile.data.unlocked_jokers = newUnlockedJokers;
+        }
+
+        setFiles(updatedFiles);
+    };
+
+    /**
+     * Aktualisiert die Daten einer Datei und synchronisiert sie
+     * Updates a file's data and synchronizes it
+     */
+    const updateFileData = (index: number, newData: any) => {
+        syncJokerStates(index, newData);
+    };
+
+    /**
+     * Bestimmt den Typ einer Datei basierend auf ihrem Namen
+     * Determines the type of a file based on its name
+     */
     function getFileType(fileName: string) {
         if (fileName.includes("settings")) return "settings";
         if (fileName.includes("meta")) return "meta";
@@ -34,6 +132,10 @@ export default function EditorPage() {
         return null;
     }
 
+    /**
+     * Verarbeitet hochgeladene Dateien
+     * Processes uploaded files
+     */
     async function handleFiles(newFiles: File[]) {
         const fileEntries: FileEntry[] = [];
         
@@ -49,7 +151,8 @@ export default function EditorPage() {
                 const data = new Uint8Array(buffer);
                 const processedData = processFile(data);
 
-                // Initialize unlocked object for save files if it doesn't exist
+                // Initialisiert das unlocked Objekt für Save-Dateien, falls es nicht existiert
+                // Initializes unlocked object for save files if it doesn't exist
                 if (type === "save" && !processedData.unlocked) {
                     processedData.unlocked = {};
                 }
@@ -69,6 +172,10 @@ export default function EditorPage() {
         setError(null);
     }
 
+    /**
+     * Lädt eine Datei herunter
+     * Downloads a file
+     */
     function download(index: number) {
         const fileEntry = files[index];
         if (!fileEntry) return;
@@ -82,17 +189,13 @@ export default function EditorPage() {
         link.click();
     }
 
+    /**
+     * Lädt alle Dateien herunter
+     * Downloads all files
+     */
     function downloadAll() {
         files.forEach((_, index) => download(index));
     }
-
-    function updateFileData(index: number, newData: any) {
-        setFiles(prev => prev.map((entry, i) => 
-            i === index ? { ...entry, data: newData } : entry
-        ));
-    }
-
-    const selectedFile = files[selectedIndex];
 
     return (
         <main className="min-h-screen p-8 bg-bg-0">
@@ -104,8 +207,7 @@ export default function EditorPage() {
                     {"\n"}- Mac: /Users/[user]/Library/Application Support/Balatro/
                 </>}>
                     <h1>Balatro Save Editor</h1>
-                </Info>
-
+                </Info>                
                 <Subtext>
                     Modded files will not work properly. Please do not report any issues regarding modded files.
                 </Subtext>
@@ -114,6 +216,18 @@ export default function EditorPage() {
                 
                 {error && (
                     <div className="text-red-500">{error}</div>
+                )}
+
+                {/* Überprüft, ob alle erforderlichen Dateien vorhanden sind */}
+                {/* Checks if all required files are present */}
+                {files.length > 0 && !files.some(f => f.type === "meta") && (
+                    <div className="text-yellow-500">Bitte lade die meta.jkr Datei hoch</div>
+                )}
+                {files.length > 0 && !files.some(f => f.type === "save") && (
+                    <div className="text-yellow-500">Bitte lade die save.jkr Datei hoch</div>
+                )}
+                {files.length > 0 && !files.some(f => f.type === "profile") && (
+                    <div className="text-yellow-500">Bitte lade die profile.jkr Datei hoch</div>
                 )}
 
                 {files.length > 0 && (
@@ -152,8 +266,7 @@ export default function EditorPage() {
                                     >
                                         JSON Editor
                                     </button>
-                                </div>
-
+                                </div>                                
                                 {editorMode === "normal" ? (
                                     <>
                                         {selectedFile.type === "settings" && 
@@ -163,22 +276,40 @@ export default function EditorPage() {
                                             />
                                         }
                                         {selectedFile.type === "meta" && 
-                                            <MetaEditor 
-                                                data={selectedFile.data} 
-                                                setData={(data: any) => updateFileData(selectedIndex, data)} 
-                                            />
+                                            (hasAllRequiredFiles ? (
+                                                <MetaEditor 
+                                                    data={selectedFile.data} 
+                                                    setData={(data: any) => updateFileData(selectedIndex, data)} 
+                                                />
+                                            ) : (
+                                                <div className="text-yellow-500 p-4">
+                                                    Bitte lade zuerst alle erforderlichen Dateien hoch (meta.jkr, save.jkr und profile.jkr)
+                                                </div>
+                                            ))
                                         }
                                         {selectedFile.type === "profile" && 
-                                            <ProfileEditor 
-                                                data={selectedFile.data} 
-                                                setData={(data: any) => updateFileData(selectedIndex, data)} 
-                                            />
+                                            (hasAllRequiredFiles ? (
+                                                <ProfileEditor 
+                                                    data={selectedFile.data} 
+                                                    setData={(data: any) => updateFileData(selectedIndex, data)} 
+                                                />
+                                            ) : (
+                                                <div className="text-yellow-500 p-4">
+                                                    Bitte lade zuerst alle erforderlichen Dateien hoch (meta.jkr, save.jkr und profile.jkr)
+                                                </div>
+                                            ))
                                         }
                                         {selectedFile.type === "save" && 
-                                            <SaveEditor 
-                                                data={selectedFile.data} 
-                                                setData={(data: any) => updateFileData(selectedIndex, data)} 
-                                            />
+                                            (hasAllRequiredFiles ? (
+                                                <SaveEditor 
+                                                    data={selectedFile.data} 
+                                                    setData={(data: any) => updateFileData(selectedIndex, data)} 
+                                                />
+                                            ) : (
+                                                <div className="text-yellow-500 p-4">
+                                                    Bitte lade zuerst alle erforderlichen Dateien hoch (meta.jkr, save.jkr und profile.jkr)
+                                                </div>
+                                            ))
                                         }
                                     </>
                                 ) : (

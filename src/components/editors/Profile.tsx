@@ -1,3 +1,11 @@
+/**
+ * Der Profil-Editor verwaltet die Langzeit-Spielerdaten.
+ * Hier können Spieler ihre Statistiken, Erfolge und Joker-Historie einsehen und bearbeiten.
+ * 
+ * The Profile Editor manages long-term player data.
+ * Here players can view and edit their statistics, achievements and joker history.
+ */
+
 import { useEffect, useState } from "react";
 import EditorInput from "../EditorInput";
 import Info from "../Info";
@@ -8,6 +16,10 @@ import Input from "../Input";
 import Button from "../Button";
 import Stake from "../infocards/Stake";
 
+/**
+ * Ein Button zum Filtern der Joker-Statistiken nach Einsatz
+ * A button to filter joker statistics by stake
+ */
 function StakeButton({ index, selected, setSelectedStake }:
     { index: number, selected: boolean, setSelectedStake: (index: number) => void }) {
     const stake = Balatro.Stake[Object.keys(Balatro.Stake)[index] as keyof typeof Balatro.Stake];
@@ -27,10 +39,16 @@ function StakeButton({ index, selected, setSelectedStake }:
 }
 
 export default function ProfileEditor({ data, setData }: { data: ProfileData, setData: (data: ProfileData) => void }) {
+    // Ausgewählter Spieleinsatz für die Statistik-Ansicht
+    // Selected stake for statistics view
     const [selectedStake, setSelectedStake] = useState<number>(-1);
+
+    // Suchfeld für die Joker-Liste
+    // Search field for the joker list
     const [jokerSearch, setJokerSearch] = useState<string>("");
 
     // Stelle sicher, dass joker_usage und unlocked_jokers existieren
+    // Ensure joker_usage and unlocked_jokers exist
     useEffect(() => {
         if (!data.joker_usage || !data.unlocked_jokers) {
             setData({
@@ -41,6 +59,10 @@ export default function ProfileEditor({ data, setData }: { data: ProfileData, se
         }
     }, [data]);
 
+    /**
+     * Schaltet alle Joker frei und initialisiert ihre Statistiken
+     * Unlocks all jokers and initializes their statistics
+     */
     const unlockAllJokers = () => {
         const jokerList = Object.keys(Balatro.Joker);
         const stakeCount = Object.keys(Balatro.Stake).length;
@@ -55,7 +77,7 @@ export default function ProfileEditor({ data, setData }: { data: ProfileData, se
                     losses: Array(stakeCount).fill(0)
                 }
             }), {}),
-            unlocked_jokers: jokerList // Füge alle Joker zum Array hinzu
+            unlocked_jokers: jokerList // Füge alle Joker zum Array hinzu / Add all jokers to array
         });
     };
 
@@ -75,6 +97,7 @@ export default function ProfileEditor({ data, setData }: { data: ProfileData, se
         </div>
 
         <h2>High Scores</h2>
+        {/* High Scores pro Spielmodus / High Scores per game mode */}
         {Object.keys(data.high_scores).map(key => {
             if (key === "collection" || key === "current_streak")
                 return null;
@@ -89,6 +112,7 @@ export default function ProfileEditor({ data, setData }: { data: ProfileData, se
             />;
         })}
 
+        {/* Karriere-Statistiken / Career Statistics */}
         <h2>Career Stats</h2>
         <EditorInput
             label="Cards Discarded" type="number" setting="career_stats.c_cards_discarded" settings={data} setSettings={setData} />
@@ -136,6 +160,7 @@ export default function ProfileEditor({ data, setData }: { data: ProfileData, se
         <EditorInput
             label="Cards Sold" type="number" setting="career_stats.c_cards_sold" settings={data} setSettings={setData} />
 
+        {/* Spielfortschritt / Game Progress */}
         <h2>Progress</h2>
         <EditorInput label="Overall" type="number" setting="progress.overall_tally" settings={data} setSettings={setData} />
         <EditorInput label="Challenges" type="number" setting="progress.challenges.tally" settings={data} setSettings={setData} />
@@ -144,14 +169,19 @@ export default function ProfileEditor({ data, setData }: { data: ProfileData, se
         <EditorInput label="Joker Stickers" type="number" setting="progress.joker_stickers.tally"
             settings={data} setSettings={setData} />
 
+        {/* Joker-Nutzungsstatistiken / Joker Usage Statistics */}
         <Info info="Stats for all jokers. Click on any row to modify the values."><h2>Joker Usage</h2></Info>
         <Info info="Stake to show win/loss data for. Press 'All' to see data for all stakes"><h3>Stake</h3></Info>
+        
+        {/* Einsatz-Filter / Stake Filter */}
         <Button onClick={() => setSelectedStake(-1)} className={selectedStake !== -1 ? "!bg-bg-3 hover:!bg-bg-4" : ""}>All</Button>
         <div className="flex flex-row gap-2 items-center w-full">
             {Object.keys(Balatro.Stake).map((_, index) => (
                 <StakeButton key={index} index={index} selected={selectedStake === index} setSelectedStake={setSelectedStake} />
             ))}
         </div>
+
+        {/* Joker-Suche / Joker Search */}
         <Input
             placeholder="Search Jokers"
             type="text"
@@ -159,6 +189,8 @@ export default function ProfileEditor({ data, setData }: { data: ProfileData, se
             value={jokerSearch}
             onChange={e => setJokerSearch(e.target.value)}
         />
+
+        {/* Joker-Tabelle / Joker Table */}
         <table>
             <thead>
                 <tr>
