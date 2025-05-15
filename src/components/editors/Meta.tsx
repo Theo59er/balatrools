@@ -6,6 +6,9 @@ import { MetaData } from "@/types/meta";
 
 type CardType = 'joker' | 'spectral' | 'tarot' | 'planet';
 
+// Neuer Typ für die Keys aller Kartenarten
+type CardKey = keyof typeof Balatro.Joker | keyof typeof Balatro.Spectral | keyof typeof Balatro.Tarot | keyof typeof Balatro.Planet;
+
 interface MetaEditorProps {
     data: MetaData;
     setData: (data: MetaData) => void;
@@ -24,9 +27,9 @@ export default function MetaEditor({ data, setData }: MetaEditorProps) {
                 unlocked: data.unlocked || {}
             });
         }
-    }, [data]);
+    }, [data, setData]);
 
-    const toggleCard = (cardKey: keyof typeof Balatro.Joker | keyof typeof Balatro.Spectral | keyof typeof Balatro.Tarot | keyof typeof Balatro.Planet) => {
+    const toggleCard = (cardKey: CardKey) => {
         const newData = { ...data };
         const currentState = newData.unlocked?.[cardKey] && newData.discovered?.[cardKey];
         
@@ -60,7 +63,8 @@ export default function MetaEditor({ data, setData }: MetaEditorProps) {
 
     const getCardImagePath = (key: string, name: string, type: CardType) => {
         const filename = name.replace(/ /g, '_');
-        switch (type) {            case 'spectral':
+        switch (type) {
+            case 'spectral':
                 return `/spectral_cards/Spectral_${filename}.webp`;
             case 'tarot':
                 return `/tarot/Tarot_${filename}.webp`;
@@ -117,12 +121,13 @@ export default function MetaEditor({ data, setData }: MetaEditorProps) {
                     .filter(([key, card]) => card.name.toLowerCase().includes(cardSearch.toLowerCase()))
                     .sort(([,a], [,b]) => a.name.localeCompare(b.name))
                     .map(([key, card]) => {
-                        const isUnlocked = data.unlocked?.[key] === true && data.discovered?.[key] === true;
+                        const typedKey = key as CardKey;
+                        const isUnlocked = data.unlocked?.[typedKey] === true && data.discovered?.[typedKey] === true;
                         
                         return (
                             <div
                                 key={key}
-                                onClick={() => toggleCard(key as keyof typeof Balatro.Joker | keyof typeof Balatro.Spectral | keyof typeof Balatro.Tarot | keyof typeof Balatro.Planet)}
+                                onClick={() => toggleCard(typedKey)}
                                 className={`
                                     relative cursor-pointer rounded-lg overflow-hidden transition-all
                                     ${!isUnlocked ? 'opacity-50 hover:opacity-75' : 'hover:brightness-110'}
@@ -154,8 +159,9 @@ export default function MetaEditor({ data, setData }: MetaEditorProps) {
                         const newData = { ...data };
                         const cards = getCardsForType();
                         cards.forEach(([key]) => {
-                            newData.unlocked = { ...newData.unlocked, [key]: true };
-                            newData.discovered = { ...newData.discovered, [key]: true };
+                            const typedKey = key as CardKey;
+                            newData.unlocked = { ...newData.unlocked, [typedKey]: true };
+                            newData.discovered = { ...newData.discovered, [typedKey]: true };
                         });
                         setData(newData);
                     }}
@@ -169,8 +175,9 @@ export default function MetaEditor({ data, setData }: MetaEditorProps) {
                         const newData = { ...data };
                         const cards = getCardsForType();
                         cards.forEach(([key]) => {
-                            newData.unlocked = { ...newData.unlocked, [key]: false };
-                            newData.discovered = { ...newData.discovered, [key]: false };
+                            const typedKey = key as CardKey;
+                            newData.unlocked = { ...newData.unlocked, [typedKey]: false };
+                            newData.discovered = { ...newData.discovered, [typedKey]: false };
                         });
                         setData(newData);
                     }}
