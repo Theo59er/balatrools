@@ -9,7 +9,7 @@
 import { useEffect, useState } from "react";
 import EditorInput from "../EditorInput";
 import Info from "../Info";
-import { ProfileData, Progress } from "@/types/profile";
+import { ProfileData } from "@/types/profile";
 import { Balatro } from "@/lib/gamedata";
 import JokerEntry from "../JokerEntry";
 import Input from "../Input";

@@ -3,39 +3,42 @@ import EditorInput from "../EditorInput";
 import Info from "../Info";
 import { useState, useEffect } from "react";
 import Input from "../Input";
+import { SaveData } from "@/types/save";
 
-export default function SaveEditor({ data, setData }: { data: any, setData: (data: any) => void }) {
+interface SaveEditorProps {
+    data: SaveData;
+    setData: (data: SaveData) => void;
+}
+
+export default function SaveEditor({ data, setData }: SaveEditorProps) {
     const [jokerSearch, setJokerSearch] = useState<string>("");
-    const [localData, setLocalData] = useState<any>(data);
+    const [localData, setLocalData] = useState<SaveData>(data);
 
-    // Synchronisiere localData wenn sich data ändert
     useEffect(() => {
         setLocalData(data);
     }, [data]);
 
-    // Stelle sicher, dass unlocked-Objekt existiert
     useEffect(() => {
         if (!localData.unlocked) {
-            setLocalData((prev: any) => ({
+            setLocalData((prev: SaveData) => ({
                 ...prev,
                 unlocked: {}
             }));
         }
     }, [localData]);
 
-    const updateData = (newData: any) => {
+    const updateData = (newData: SaveData) => {
         setLocalData(newData);
         setData(newData);
     };
 
     const unlockAllJokers = () => {
-        const newData = {
+        const newData: SaveData = {
             ...localData,
             unlocked: Object.keys(Balatro.Joker).reduce((acc, key) => ({
                 ...acc,
                 [key]: true
             }), {}),
-            // Auch für profile.jkr Datei
             joker_usage: {
                 ...localData.joker_usage,
                 ...Object.keys(Balatro.Joker).reduce((acc, key) => ({
@@ -84,13 +87,12 @@ export default function SaveEditor({ data, setData }: { data: any, setData: (dat
                                 type="checkbox"
                                 checked={isUnlocked || false}
                                 onChange={() => {
-                                    const newData = {
+                                    const newData: SaveData = {
                                         ...localData,
                                         unlocked: {
                                             ...localData.unlocked,
                                             [jokerKey]: !isUnlocked
                                         },
-                                        // Auch für profile.jkr
                                         joker_usage: {
                                             ...localData.joker_usage,
                                             [jokerKey]: !isUnlocked ? 
