@@ -2,24 +2,37 @@
 
 A powerful collection of tools and resources for Balatro game file manipulation and exploration.
 
+> **🤖 AI Development Notice**:  
+> This project is developed with assistance from generative AI tools (GitHub Copilot, ChatGPT).  
+> However, all code suggestions are:
+>
+> - Manually reviewed and validated
+> - Only implemented after human verification
+> - Properly documented and commented
+> - Tested before integration
+
 ## Features ✨
 
 ### Advanced File Editing
-- **Profile Editor**: Modify your game  progress
+
+- **Profile Editor**: Modify your game progress
 - **Save File Editor**: Edit your current game saves
 - **Settings Editor**: Customize game settings and configurations
 
 ### Card Discovery & Management 🃏
+
 - Browse and explore all available joker cards
 - View detailed card information and statistics
 - View and Edit card data in JSON format in Browser
 
 ### Enhanced Data Visualization
+
 - **JSON View**: Raw data inspection and editing capabilities
 - **Interactive UI**: User-friendly interface for all editors
 - **Card Preview**: Visual representation of game elements
 
 ### File Format Support
+
 - `.save` files
 - `.profile` files
 - `.meta` files
@@ -27,6 +40,7 @@ A powerful collection of tools and resources for Balatro game file manipulation 
 ## Installation & Setup Guide 🛠️
 
 ### Prerequisites
+
 - Node.js (v18 or higher) 📦
 - pnpm (v9 or lower) 🔧
 
@@ -50,12 +64,12 @@ Your development server will be running at http://localhost:3000 🚀
 
 ### Available Commands 💻
 
-| Command | Description |
-|---------|------------|
-| `pnpm dev` | Start development server with Turbopack |
-| `pnpm build` | Create production build |
-| `pnpm start` | Run production server |
-| `pnpm lint` | Run ESLint code checks |
+| Command      | Description                             |
+| ------------ | --------------------------------------- |
+| `pnpm dev`   | Start development server with Turbopack |
+| `pnpm build` | Create production build                 |
+| `pnpm start` | Run production server                   |
+| `pnpm lint`  | Run ESLint code checks                  |
 
 ### Technical Details 🔍
 
@@ -83,4 +97,3 @@ Your development server will be running at http://localhost:3000 🚀
 All rights reserved to Balatro and localthunk for sprites and other assets.
 
 ![Balatrools Preview](TJoker.png)
-

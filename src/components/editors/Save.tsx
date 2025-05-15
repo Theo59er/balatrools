@@ -1,13 +1,3 @@
-/**
- * Der Save-Editor verwaltet den aktuellen Spielstand.
- * Hier können Spieler den Zustand des laufenden Spiels bearbeiten,
- * einschließlich freigeschalteter Joker, Geld und Rundenzahl.
- * 
- * The Save Editor manages the current game state.
- * Here players can edit the state of the ongoing game,
- * including unlocked jokers, money and round number.
- */
-
 import { Balatro } from "@/lib/gamedata";
 import EditorInput from "../EditorInput";
 import Info from "../Info";
@@ -15,22 +5,15 @@ import { useState, useEffect } from "react";
 import Input from "../Input";
 
 export default function SaveEditor({ data, setData }: { data: any, setData: (data: any) => void }) {
-    // Lokaler State für die Joker-Suche
-    // Local state for joker search
     const [jokerSearch, setJokerSearch] = useState<string>("");
-
-    // Lokaler State für die Spieldaten
-    // Local state for game data
     const [localData, setLocalData] = useState<any>(data);
 
     // Synchronisiere localData wenn sich data ändert
-    // Synchronize localData when data changes
     useEffect(() => {
         setLocalData(data);
     }, [data]);
 
     // Stelle sicher, dass unlocked-Objekt existiert
-    // Ensure unlocked object exists
     useEffect(() => {
         if (!localData.unlocked) {
             setLocalData((prev: any) => ({
@@ -40,15 +23,11 @@ export default function SaveEditor({ data, setData }: { data: any, setData: (dat
         }
     }, [localData]);
 
-    // Aktualisiert Daten und sendet sie nach oben
-    // Updates data and sends it up
     const updateData = (newData: any) => {
         setLocalData(newData);
         setData(newData);
     };
 
-    // Schaltet alle Joker frei
-    // Unlocks all jokers
     const unlockAllJokers = () => {
         const newData = {
             ...localData,
@@ -56,8 +35,7 @@ export default function SaveEditor({ data, setData }: { data: any, setData: (dat
                 ...acc,
                 [key]: true
             }), {}),
-            // Auch für profile.jkr
-            // Also for profile.jkr
+            // Auch für profile.jkr Datei
             joker_usage: {
                 ...localData.joker_usage,
                 ...Object.keys(Balatro.Joker).reduce((acc, key) => ({
@@ -70,7 +48,7 @@ export default function SaveEditor({ data, setData }: { data: any, setData: (dat
     };
 
     return (<>
-        <Info info="Aktuelle Spieldaten"><h2>Aktuelles Spiel</h2></Info>
+        <Info info="Aktuelle Spieldaten"><h2>Aktuelles Spiel (noch nicht so funktionabel)</h2></Info>
         
         <div className="flex justify-between items-center mb-2">
             <h3>Freigeschaltete Joker</h3>
@@ -91,8 +69,6 @@ export default function SaveEditor({ data, setData }: { data: any, setData: (dat
         />
         
         <div className="grid grid-cols-2 gap-2">
-            {/* Zeigt alle Joker sortiert nach ihrer Order an
-                Shows all jokers sorted by their order */}
             {Object.keys(Balatro.Joker)
                 .filter(v => v.toLowerCase().includes(jokerSearch.toLowerCase()))
                 .sort((a, b) => (
@@ -114,8 +90,7 @@ export default function SaveEditor({ data, setData }: { data: any, setData: (dat
                                             ...localData.unlocked,
                                             [jokerKey]: !isUnlocked
                                         },
-                                        // Aktualisiert auch die Nutzungsstatistik
-                                        // Also updates usage statistics
+                                        // Auch für profile.jkr
                                         joker_usage: {
                                             ...localData.joker_usage,
                                             [jokerKey]: !isUnlocked ? 

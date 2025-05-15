@@ -1,25 +1,12 @@
-/**
- * Der Meta-Editor ist dein Werkzeug für die Joker-Verwaltung!
- * Hier kannst du Joker freischalten, sperren und deren Status verwalten.
- * Die Änderungen werden automatisch mit den anderen Dateien synchronisiert.
- * 
- * The Meta-Editor is your tool for joker management!
- * Here you can unlock, lock and manage the status of jokers.
- * Changes are automatically synchronized with the other files.
- */
-
 import { useState, useEffect } from "react";
 import { Balatro } from "@/lib/gamedata";
 import Info from "../Info";
 import Input from "../Input";
 
 export default function MetaEditor({ data, setData }: { data: any, setData: (data: any) => void }) {
-    // Suchfeld für die Joker-Liste
-    // Search field for the joker list
     const [jokerSearch, setJokerSearch] = useState<string>("");
     
-    // Stellt sicher, dass die Grundstruktur existiert
-    // Ensures the basic structure exists
+    // Ensure the required objects exist in the data
     useEffect(() => {
         if (!data.discovered || !data.unlocked) {
             setData({
@@ -30,13 +17,6 @@ export default function MetaEditor({ data, setData }: { data: any, setData: (dat
         }
     }, [data]);
 
-    /**
-     * Schaltet einen Joker um (frei/gesperrt)
-     * Der Status wird in allen verknüpften Dateien aktualisiert
-     * 
-     * Toggles a joker (unlocked/locked)
-     * The status is updated in all linked files
-     */
     const toggleJoker = (jokerKey: string) => {
         const newData = { ...data };
         const currentState = newData.unlocked?.[jokerKey] && newData.discovered?.[jokerKey];
@@ -68,7 +48,7 @@ export default function MetaEditor({ data, setData }: { data: any, setData: (dat
                 onChange={e => setJokerSearch(e.target.value)}
             />
 
-            <div className="grid grid-cols-6 gap-4">
+            <div className="grid grid-cols-5 gap-4">
                 {Object.entries(Balatro.Joker)
                     .filter(([key]) => key.toLowerCase().includes(jokerSearch.toLowerCase()))
                     .sort(([,a], [,b]) => a.order - b.order)
